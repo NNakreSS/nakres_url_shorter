@@ -1,0 +1,667 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #232323 !important;
+    position: relative;
+}
+
+
+#light-left-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(ellipse at left top, rgba(113, 174, 212, 0.6) 0%, rgba(0, 0, 0, 0) 60%);
+    transform: translate(-40%, -20%);
+    filter: blur(100px);
+    z-index: -99;
+}
+
+#light-center-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(ellipse at center bottom, rgba(117, 191, 220, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
+    transform: translate(35%, 60%);
+    filter: blur(100px);
+    z-index: -99;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    background-color: #1C1C1C;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px;
+    border-bottom: 3px solid #4A4A4A;
+}
+
+header #logo {
+    margin-left: 5%;
+    height: 100%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header #login-controll {
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+header #login-controll #user {
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 15px;
+    border-radius: 5px;
+    height: 100%;
+    width: 200px;
+    border: 1px solid rgb(122, 122, 122);
+    background: rgb(51, 51, 51);
+    background: linear-gradient(61deg, rgba(51, 51, 51, 0.2189250700280112) 0%, rgba(0, 1, 0, 0) 100%);
+}
+
+header #login-controll #user .user-icon {
+    margin-right: 10%;
+}
+
+header #login-controll #log-outh {
+    height: 120%;
+    width: 100px;
+    background: rgb(255, 0, 0);
+    background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+    color: red;
+    border: 2px solid red;
+    font-weight: 500;
+    letter-spacing: .05rem;
+}
+
+header #login-controll #log-outh:hover {
+    background: red;
+    color: white;
+}
+
+button {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 800;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #515151;
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #818181;
+    border-radius: 5px;
+}
+
+main {
+    width: 90%;
+    /* background-color: #ffffff; */
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    grid-template-areas:
+        "total total new_user"
+        "url-form url-form users"
+        "links links users"
+        "links links all-links";
+    padding: 20px 0px;
+}
+
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    background-color: #1C1C1C;
+    color: rgb(201, 201, 201);
+    padding: 10px;
+    border-top: 3px solid #4A4A4A;
+    font-size: .9rem;
+}
+
+main .box-item {
+    background-color: #1C1C1C;
+    border-top: 4px solid #00b3ff;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #232323;
+    width: 90%;
+    height: 40px;
+    color: #00b3ff;
+    border: 1px solid #00b3ff;
+}
+
+label i {
+    position: absolute;
+    left: 10px;
+}
+
+/* total infos  */
+
+main #total-infos {
+    grid-area: total;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#total-infos .total {
+    width: 48%;
+    height: 80%;
+    background-color: #232323;
+    border-radius: 10px;
+}
+
+
+#total-infos .total-conent {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    align-items: center;
+    position: relative;
+}
+
+
+#total-infos .total-icon {
+    display: block;
+    margin: 0 5%;
+    border-radius: 10px;
+    font-size: 3rem;
+    color: #00b3ff;
+}
+
+#total-infos .total-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+#total-infos .total-bg {
+    position: absolute;
+    right: 10px;
+    font-size: 5rem;
+    color: #3e3e3e;
+}
+
+#total-infos .total-text span {
+    color: rgb(167, 167, 167);
+    font-weight: 500;
+}
+
+/* new user form */
+
+main #new-user {
+    grid-area: new_user;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#new-user #new_user_box {
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    height: 80%;
+    flex-wrap: wrap;
+}
+
+#new_user_box form {
+    height: 70%;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    align-items: center;
+    justify-content: end;
+    gap: 2%;
+}
+
+#new_user_box form input {
+    height: 40%;
+    width: 49%;
+    outline: none;
+    padding: 0 20px;
+    font-size: 1rem;
+    border: 1px solid #3a3a3a;
+    transition: all 0.1s ease;
+    caret-color: #cecece;
+    background-color: #232323;
+    color: white;
+    align-self: flex-end;
+}
+
+#new_user_box form input::placeholder {
+    color: rgba(181, 181, 181, 0.215);
+    font-size: .9rem;
+}
+
+#new_user_box #save_new_user {
+    height: 40%;
+    width: 49%;
+    align-self: flex-end;
+    color: green;
+    background: rgb(1, 255, 0);
+    background: linear-gradient(61deg, rgba(1, 255, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+    border: 2px solid #558B4C;
+}
+
+#new_user_box #save_new_user:hover {
+    background: green;
+    color: white;
+}
+
+/* url form */
+
+main #url-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: url-form;
+    height: 110px;
+    position: relative;
+}
+
+#url-form form {
+    /* background-color: #00b3ff; */
+    height: 90%;
+    width: 97%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+}
+
+#url-form input {
+    width: 100%;
+    height: 30%;
+    outline: none;
+    padding: 0 40px;
+    font-size: .8rem;
+    border: 1px solid #019be2;
+    transition: all 0.1s ease;
+    caret-color: #cecece;
+    background-color: #232323;
+    color: #cecece;
+    border-radius: 5px;
+}
+
+#url-form input::placeholder {
+    font-size: .8rem;
+    font-weight: 700;
+    color: rgba(151, 151, 151, 0.281);
+}
+
+#url-form form .url-form-icon {
+    position: absolute;
+    color: #00b3ff;
+}
+
+#url-form form .url-form-icon.long {
+    top: 22px;
+    left: 22px;
+}
+
+#url-form form .url-form-icon.tag {
+    top: 68px;
+    left: 22px;
+}
+
+#url-form #short_url_tag::placeholder {
+    color: rgba(148, 148, 148, 0.571);
+    text-align: center;
+}
+
+#url-form #short_url_tag {
+    width: 49%;
+    height: 30%;
+}
+
+
+#url-form #short_button {
+    position: absolute;
+    right: 1.5%;
+    bottom: 20px;
+    width: 10%;
+    height: 30%;
+    background: rgb(0, 172, 255);
+    background: linear-gradient(61deg, rgba(0, 172, 255, 0.05926120448179273) 0%, rgba(0, 1, 0, 0) 100%);
+    border: 2px solid #00aaff;
+    color: #00aaff;
+}
+
+#url-form #short_button:hover {
+    background: #00aaff;
+    color: #ffffff;
+}
+
+/* users */
+
+main #users {
+    grid-area: users;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#users label {
+    width: 100%;
+}
+
+#users #users_box {
+    display: flex;
+    height: 95%;
+    width: 85%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* background-color: #00aaff; */
+}
+
+
+#users_box #user-list {
+    width: 100%;
+    height: 80%;
+    margin-top: 5%;
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    gap: 10px;
+}
+
+#user-list .user-item {
+    width: 98%;
+    height: 50px;
+    color: #fff;
+    padding: 1%;
+    border-left: 5px solid #00b3ff;
+    border-radius: 2px;
+    background: #232323;
+    box-shadow: inset 15px 0 20px -18px rgba(0, 179, 255, 0.911);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding-left: 40px;
+    padding-right: 10px;
+}
+
+.user-item i {
+    position: absolute;
+    left: 10px;
+    color: #5C5C5C;
+    font-size: 1.2rem;
+}
+
+.user-item .delete-user {
+    width: 20%;
+    height: 70%;
+    background: rgb(255, 0, 0);
+    background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+    color: rgba(255, 0, 0, 0.6);
+    border: 1px solid rgba(255, 0, 0, 0.6);
+    letter-spacing: 2px;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.user-item .delete-user:hover {
+    background: rgba(255, 0, 0, 0.6);
+    color: white;
+}
+
+
+/* links */
+
+main #links {
+    grid-area: links;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 25px;
+    overflow-y: auto;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#links .link-item {
+    width: 100%;
+    background-color: #232323;
+    height: 160px;
+    padding: 15px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.link-item .content {
+    width: 50%;
+    height: 100%;
+}
+
+.link-item .head {
+    height: 20%;
+    width: 100%;
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 2%;
+}
+
+.link-item .link-info {
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.link-info .url {
+    height: 20%;
+    width: 100%;
+    display: flex;
+}
+
+
+.url .full-url {
+    color: turquoise;
+}
+
+.full-url i {
+    color: rgb(180, 180, 180);
+}
+
+.url .click-count {
+    color: #6e6e6e;
+    font-weight: 500;
+}
+
+.link-info input {
+    width: 80%;
+    height: 30%;
+    margin: 2% 0;
+    outline: none;
+    padding: 0 10px;
+    font-size: 1rem;
+    border: 1px solid #3a3a3a;
+    transition: all 0.1s ease;
+    caret-color: #a3a3a3;
+    background-color: #232323;
+    color: white;
+    align-self: flex-end;
+}
+
+.link-info input::placeholder {
+    color: rgba(181, 181, 181, 0.215);
+    font-size: .9rem;
+}
+
+.link-info .create-date {
+    color: rgb(220, 220, 220);
+    font-weight: 600;
+}
+
+.create-date>.date,
+.clock {
+    color: rgb(151, 151, 151);
+    font-weight: 400;
+}
+
+#links .link-action {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.link-action button {
+    width: 25%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.link-action .edit-url {
+    background: rgb(1, 255, 0);
+    background: linear-gradient(61deg, rgba(1, 255, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+    color: green;
+    border: 2px solid green;
+}
+
+.link-action .edit-url:hover {
+    background: green;
+    color: white;
+}
+
+.link-action .delete-url {
+    background: rgb(255, 0, 0);
+    background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+    color: red;
+    border: 2px solid red;
+}
+
+.link-action .delete-url:hover {
+    background: red;
+    color: white;
+}
+
+/* all links */
+
+main #all-links {
+    grid-area: all-links;
+    height: 400px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding: 20px 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#all-links #link-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    height: 88%;
+    overflow-y: auto;
+    gap: 10px;
+}
+
+#all-links .all-link.item {
+    width: 98%;
+    height: 50px;
+    color: #fff;
+    padding: 1%;
+    border-left: 5px solid #00b3ff;
+    border-radius: 2px;
+    background: #232323;
+    box-shadow: inset 15px 0 20px -18px rgba(0, 179, 255, 0.911);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: .8rem;
+}
+
+#all-links .all-link.info a{
+    color: antiquewhite;
+}
+
+#all-links .all-link.creator {
+    color: rgb(145, 145, 145);
+}
+
+#all-links .all-link.delete {
+    width: 20%;
+    height: 70%;
+    background: rgb(255, 0, 0);
+    background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+    color: rgba(255, 0, 0, 0.6);
+    border: 1px solid rgba(255, 0, 0, 0.6);
+    letter-spacing: 2px;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+#all-links .all-link.delete:hover {
+    background: rgba(255, 0, 0, 0.6);
+    color: white;
+}
