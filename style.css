@@ -13,8 +13,8 @@ body {
     min-height: 100vh;
     background-color: #232323 !important;
     position: relative;
+    overflow-x: hidden;
 }
-
 
 #light-left-top {
     position: absolute;
@@ -24,6 +24,18 @@ body {
     height: 50%;
     background: radial-gradient(ellipse at left top, rgba(113, 174, 212, 0.6) 0%, rgba(0, 0, 0, 0) 60%);
     transform: translate(-40%, -20%);
+    filter: blur(100px);
+    z-index: -99;
+}
+
+#light-right-center {
+    position: absolute;
+    bottom: 650px;
+    right: 0;
+    width: 50%;
+    height: 70%;
+    background: radial-gradient(ellipse at center bottom, rgba(113, 174, 212, 0.6) 0%, rgba(0, 0, 0, 0) 50%);
+    transform: translate(65%, 45%);
     filter: blur(100px);
     z-index: -99;
 }
@@ -85,7 +97,7 @@ header #login-controll #user .user-icon {
     margin-right: 10%;
 }
 
-header #login-controll #log-outh {
+header #login-controll #log-out {
     height: 120%;
     width: 100px;
     background: rgb(255, 0, 0);
@@ -96,7 +108,7 @@ header #login-controll #log-outh {
     letter-spacing: .05rem;
 }
 
-header #login-controll #log-outh:hover {
+header #login-controll #log-out:hover {
     background: red;
     color: white;
 }
@@ -131,7 +143,7 @@ main {
     /* background-color: #ffffff; */
     margin: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr; */
     gap: 20px;
     grid-template-areas:
         "total total new_user"
@@ -160,6 +172,7 @@ main .box-item {
     border-top: 4px solid #00b3ff;
     border-top-right-radius: 2px;
     border-top-left-radius: 2px;
+    box-shadow: 0px 3px 5px 0px #000000;
 }
 
 label {
@@ -300,6 +313,25 @@ main #new-user {
     color: white;
 }
 
+#new_user_box .check-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 49%;
+    color: white;
+    font-size: 1rem;
+    letter-spacing: 1.2px;
+    border-bottom: 2px solid #49fcff;
+}
+
+#new_user_box .check-box input {
+    background-color: #000000;
+    margin-bottom: 3%;
+    height: 60%;
+    width: 20%;
+}
+
 /* url form */
 
 main #url-form {
@@ -348,12 +380,12 @@ main #url-form {
 
 #url-form form .url-form-icon.long {
     top: 22px;
-    left: 22px;
+    left: 2%;
 }
 
 #url-form form .url-form-icon.tag {
     top: 68px;
-    left: 22px;
+    left: 2%;
 }
 
 #url-form #short_url_tag::placeholder {
@@ -444,20 +476,45 @@ main #users {
     font-size: 1.2rem;
 }
 
+.user-item .action-buttons {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.user-item button {
+    width: 50%;
+}
+
 .user-item .delete-user {
-    width: 20%;
     height: 70%;
     background: rgb(255, 0, 0);
     background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
     color: rgba(255, 0, 0, 0.6);
     border: 1px solid rgba(255, 0, 0, 0.6);
-    letter-spacing: 2px;
     font-weight: 300;
     font-size: 1rem;
 }
 
 .user-item .delete-user:hover {
     background: rgba(255, 0, 0, 0.6);
+    color: white;
+}
+
+.user-item .edit-user {
+    height: 70%;
+    background: linear-gradient(61deg, rgba(0, 200, 255, 0.051) 0%, rgba(0, 1, 1, 0) 100%);
+    color: rgba(0, 174, 255, 0.6);
+    border: 1px solid rgba(0, 174, 255, 0.6);
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.user-item .edit-user:hover {
+    background: rgba(0, 174, 255, 0.6);
     color: white;
 }
 
@@ -484,6 +541,7 @@ main #links {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .link-item .content {
@@ -568,7 +626,7 @@ main #links {
 
 
 .link-action button {
-    width: 25%;
+    width: 30%;
     height: 30%;
     display: flex;
     justify-content: center;
@@ -641,7 +699,7 @@ main #all-links {
     font-size: .8rem;
 }
 
-#all-links .all-link.info a{
+#all-links .all-link.info a {
     color: antiquewhite;
 }
 
@@ -664,4 +722,225 @@ main #all-links {
 #all-links .all-link.delete:hover {
     background: rgba(255, 0, 0, 0.6);
     color: white;
+}
+
+/* login page  */
+
+#login-container {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 94.8vh;
+    width: 100%;
+}
+
+
+#login-container #login_page {
+    flex: .3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 350px) !important;
+    width: 30%;
+    background-color: #1C1C1C;
+    border-top: 4px solid #00b3ff;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    box-shadow: 0px 3px 5px 0px #000000;
+    padding: 1%;
+}
+
+#login_page form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    height: 85%;
+    gap: 20px;
+    margin-top: 2%;
+}
+
+#login_page input {
+    width: 90%;
+    outline: none;
+    padding: 5px 20px;
+    font-size: 1rem;
+    border: 1px solid #3a3a3a;
+    transition: all 0.1s ease;
+    caret-color: #a3a3a3;
+    background-color: #232323;
+    color: white;
+    border-radius: 5px;
+}
+
+#login_page input:focus {
+    border-color: #00b3ff;
+}
+
+#login_page input:focus::placeholder {
+    color: #019be292;
+}
+
+#login_page input::placeholder {
+    color: rgba(181, 181, 181, 0.215);
+    font-size: .9rem;
+}
+
+#login_page #login_button {
+    width: 80%;
+    background: green;
+    color: rgb(221, 221, 221);
+    padding: 10px;
+    margin-top: 10%;
+    border: 2px solid green;
+}
+
+#login_page #login_button:hover {
+    background: none;
+    color: green;
+}
+
+/* alerts  */
+.alert-box {
+    min-height: 50px;
+    position: fixed;
+    text-align: center;
+    top: 20px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+.alert-box .alert {
+    padding: 20px 20px 20px 60px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.781);
+    font-size: 1rem;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background-color: #1c1c1cff;
+    border: 1px solid #b8b8b840;
+}
+
+.alert i {
+    font-size: 1.8rem;
+    position: absolute;
+    left: 1rem;
+    margin-right: 5%;
+}
+
+.alert.info i {
+    color: orange;
+    /* filter: drop-shadow(0 0 .3rem orange); */
+}
+
+
+.alert.error i {
+    color: red;
+    /* filter: drop-shadow(0 0 .3rem red); */
+}
+
+.alert.success i {
+    color: green;
+    /* filter: drop-shadow(0 0 .3rem green); */
+}
+
+.alert.info {
+    border-bottom: 2px solid orange;
+}
+
+
+.alert.error {
+    border-bottom: 2px solid red;
+
+}
+
+.alert.success {
+    border-bottom: 2px solid green;
+}
+
+.alert .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: 600;
+    float: right;
+    font-size: 2rem;
+    line-height: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.alert .closebtn:hover {
+    color: rgb(255, 118, 118);
+}
+
+/* custom comfirm */
+
+.custom-confirm {
+    display: none;
+    background-color: #232323;
+    color: white;
+    border-bottom: 3px solid rgb(0, 0, 0);
+    max-width: 500px;
+    padding: 20px;
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    box-shadow: 0px 0px 20px -10px black;
+    border-radius: 5px;
+    word-spacing: .2rem;
+}
+
+.custom-confirm button {
+    width: 40%;
+    color: green;
+    padding: 10px;
+    margin-top: 10%;
+    border: 2px solid green;
+    font-size: 1rem;
+    padding: 5px;
+    background: rgb(1, 255, 0);
+    background: linear-gradient(61deg, rgba(1, 255, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+}
+
+.custom-confirm button:hover {
+    color: rgb(255, 255, 255);
+    background: green;
+}
+
+.custom-confirm #confirm-no {
+    background: rgb(255, 0, 0);
+    background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+    color: red;
+    border: 2px solid red;
+}
+
+.custom-confirm #confirm-no:hover {
+    color: rgb(255, 255, 255);
+    background: red;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.01);
+    z-index: 9999;
 }

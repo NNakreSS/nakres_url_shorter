@@ -1,0 +1,1 @@
+<footer>&COPY; NakreS Development 2023</footer>
