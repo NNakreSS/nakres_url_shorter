@@ -108,7 +108,7 @@ header #login-controll #log-out {
     letter-spacing: .05rem;
 }
 
-header #login-controll #log-out:hover {
+header #login-controll #log-out:hover:enabled {
     background: red;
     color: white;
 }
@@ -143,7 +143,7 @@ main {
     /* background-color: #ffffff; */
     margin: auto;
     display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     grid-template-areas:
         "total total new_user"
@@ -298,6 +298,10 @@ main #new-user {
     font-size: .9rem;
 }
 
+#new_user_box form input:focus {
+    border-color: #00b3ff;
+}
+
 #new_user_box #save_new_user {
     height: 40%;
     width: 49%;
@@ -308,7 +312,7 @@ main #new-user {
     border: 2px solid #558B4C;
 }
 
-#new_user_box #save_new_user:hover {
+#new_user_box #save_new_user:hover:enabled {
     background: green;
     color: white;
 }
@@ -411,7 +415,7 @@ main #url-form {
     color: #00aaff;
 }
 
-#url-form #short_button:hover {
+#url-form #short_button:hover:enabled {
     background: #00aaff;
     color: #ffffff;
 }
@@ -476,6 +480,10 @@ main #users {
     font-size: 1.2rem;
 }
 
+.user-item i.admin {
+    color: #ffffff;
+}
+
 .user-item .action-buttons {
     width: 50%;
     height: 100%;
@@ -499,7 +507,7 @@ main #users {
     font-size: 1rem;
 }
 
-.user-item .delete-user:hover {
+.user-item .delete-user:hover:enabled {
     background: rgba(255, 0, 0, 0.6);
     color: white;
 }
@@ -513,7 +521,7 @@ main #users {
     font-size: 1rem;
 }
 
-.user-item .edit-user:hover {
+.user-item .edit-user:hover:enabled {
     background: rgba(0, 174, 255, 0.6);
     color: white;
 }
@@ -557,6 +565,31 @@ main #links {
     margin-bottom: 2%;
 }
 
+.link-item .head div {
+    display: inline;
+    cursor: pointer;
+}
+
+.link-item .head div:hover {
+    color: #00aaff;
+}
+
+.tooltip-text {
+    position: relative;
+    visibility: hidden;
+    z-index: 1;
+    color: rgb(245, 245, 245);
+    font-size: .8rem;
+    background-color: #444444;
+    border-radius: 2px;
+    padding: 10px 15px 10px 15px;
+    border-bottom: 2px solid orange;
+}
+
+.link-item .head div:hover .tooltip-text {
+    visibility: visible;
+}
+
 .link-item .link-info {
     height: 80%;
     display: flex;
@@ -573,7 +606,7 @@ main #links {
 
 .url .full-url {
     color: turquoise;
-    max-width: 200px;
+    max-width: 250px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -604,8 +637,12 @@ main #links {
 }
 
 .link-info input::placeholder {
-    color: rgba(181, 181, 181, 0.215);
+    color: rgb(121, 121, 121);
     font-size: .9rem;
+}
+
+.link-info input:focus {
+    border-color: #00b3ff;
 }
 
 .link-info .create-date {
@@ -645,7 +682,7 @@ main #links {
     border: 2px solid green;
 }
 
-.link-action .edit-url:hover {
+.link-action .edit-url:hover:enabled {
     background: green;
     color: white;
 }
@@ -657,9 +694,15 @@ main #links {
     border: 2px solid red;
 }
 
-.link-action .delete-url:hover {
+.link-action .delete-url:hover:enabled {
     background: red;
     color: white;
+}
+
+#non-link-info {
+    font-size: 1.5rem;
+    color: rgb(139, 139, 139);
+
 }
 
 /* all links */
@@ -723,7 +766,7 @@ main #all-links {
     font-size: 1rem;
 }
 
-#all-links .all-link.delete:hover {
+#all-links .all-link.delete:hover:enabled {
     background: rgba(255, 0, 0, 0.6);
     color: white;
 }
@@ -804,7 +847,7 @@ main #all-links {
     border: 2px solid green;
 }
 
-#login_page #login_button:hover {
+#login_page #login_button:hover:enabled {
     background: none;
     color: green;
 }
@@ -898,7 +941,7 @@ main #all-links {
     max-width: 500px;
     padding: 20px;
     text-align: center;
-    position: absolute;
+    position: fixed;
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -947,4 +990,9 @@ main #all-links {
     backdrop-filter: blur(2px);
     background: rgba(0, 0, 0, 0.01);
     z-index: 9999;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    border: none !important;
 }

@@ -17,10 +17,12 @@
                                 </span>
                             </div>
                         </div>
-                        <button data-tag=" <?php echo $url['short_url'] ?>" class="all-link delete">Sil</button>
+                        <button data-tag="<?php echo $url['short_url'] ?>" class="all-link delete delete-url">Sil</button>
                     </div>
                     <?php
                 }
+            } else {
+                echo '<div id="non-link-info"> Oluşturulmuş herhangi bir kısa link mevcut değil.. </div>';
             }
         } ?>
     </div>

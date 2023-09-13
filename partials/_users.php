@@ -10,14 +10,15 @@ if ($_SESSION['isAdmin'] == 1) {
                     foreach ($usersData as $key => $user) {
                         ?>
                         <div class="user-item">
-                            <i class="user-icon fa-solid fa-user"></i>
+                            <i class="user-icon fa-solid fa-user <?php if ($user['isAdmin'] == 1) {
+                                echo "admin";
+                            } ?>"></i>
                             <div class="name">
                                 <?php echo $user['user_name'] ?>
                             </div>
                             <div class="action-buttons">
-                                <button data-userName="<?php echo $user['user_name'] ?>" data-userId="<?php echo $user['id'] ?>"
-                                    class="edit-user">Düzenle</button>
-                                <button data-userId="<?php echo $user['id'] ?>" class="delete-user">Sil</button>
+                                <button data-username="<?php echo $user['user_name'] ?>" class="edit-user">Düzenle</button>
+                                <button data-username="<?php echo $user['user_name'] ?>" class="delete-user">Sil</button>
                             </div>
                         </div>
                         <?php

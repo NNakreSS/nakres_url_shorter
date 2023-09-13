@@ -3,7 +3,9 @@
         <div class="total-conent">
             <i class="total-icon fa-solid fa-chart-simple"></i>
             <div class="total-text">
-                <div id="click-count">0</div>
+                <div id="click-count">
+                    <?php echo $clickCount ?>
+                </div>
                 <span>Tıklamalar</span>
             </div>
             <i class="total-bg fa-solid fa-chart-simple"></i>
@@ -13,7 +15,9 @@
         <div class="total-conent">
             <i class="total-icon fa-solid fa-link"></i>
             <div class="total-text">
-                <div id="link-count">0</div>
+                <div id="link-count">
+                    <?php echo $userUrls->num_rows ?>
+                </div>
                 <span>Toplam Link</span>
             </div>
             <i class="total-bg fa-solid fa-link"></i>

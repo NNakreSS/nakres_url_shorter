@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once '../config.php';
 require_once '_connect.php';
 date_default_timezone_set('Europe/Istanbul');
 
@@ -14,8 +15,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'add_new_user':
             echo addNewUserToDatabase($_POST['username'], $_POST['password'], $_POST['isAdmin'], $conn);
             break;
+        case 'delete_user':
+            echo deleteUserToDatabase($_POST['username'], $conn);
+            break;
         case 'add_new_url':
             echo addUrlToDatabase($_POST['full_url'], $_POST['short_tag'], $conn);
+            break;
+        case 'delete_url':
+            echo deleteUrlToDatabase($_POST['url'], $conn);
+            break;
+        case 'edit_url':
+            echo editUrlToDatabase($_POST['url'], $_POST['newUrl'], $conn);
             break;
         default:
             break;
@@ -27,7 +37,7 @@ function checkLogin($username, $password, $conn)
     if (!empty($username) && !empty($password)) {
         $username = $conn->real_escape_string($username);
         $password = $conn->real_escape_string($password);
-        $query = "SELECT * FROM users WHERE user_name = ?";
+        $query = "SELECT * FROM users WHERE BINARY user_name = ?";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("s", $username);
         $stmt->execute();
@@ -66,17 +76,11 @@ function addNewUserToDatabase($username, $password, $isAdmin, $conn)
 {
     if ($_SESSION['isAdmin'] == 1 && (!empty($username) && !empty($password))) {
         $username = $conn->real_escape_string($username);
-        $password = $conn->real_escape_string($password);
-        $query = "SELECT * FROM users WHERE user_name = ?";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param('s', $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
-        if ($result->num_rows > 0) {
+        if (isDoesExistUser($username, $conn)) {
             $message = "Bu kullanıcı adı zaten kullanılıyor ! ";
             $type = "error";
         } else {
+            $password = $conn->real_escape_string($password);
             $password = password_hash($password, PASSWORD_DEFAULT);
             $user_id = generateRandomUserID(6, $conn);
             if ($isAdmin == "true") {
@@ -96,6 +100,38 @@ function addNewUserToDatabase($username, $password, $isAdmin, $conn)
                 $message = "Kullanıcı eklenirken bir hata meydana geldi ! ";
                 $type = "error";
             }
+        }
+        return json_encode(["message" => $message, "type" => $type]);
+    } else {
+        echo "Bunun için yetkin yok ! ";
+    }
+}
+
+function deleteUserToDatabase($username, $conn)
+{
+    if ($_SESSION['isAdmin'] == 1) {
+        if ((!empty($username))) {
+            $username = $conn->real_escape_string($username);
+            if (isDoesExistUser($username, $conn)) {
+                $query = "DELETE FROM users WHERE user_name = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param('s', $username);
+                $delete = $stmt->execute();
+                $stmt->close();
+                if ($delete) {
+                    $message = "Kullanıcı başarıyla silindi";
+                    $type = "success";
+                } else {
+                    $message = "Kullanıcı silinirken bir hata meydana geldi";
+                    $type = "error";
+                }
+            } else {
+                $message = "Kullanıcı bulunamadı ! ";
+                $type = "error";
+            }
+        } else {
+            $message = "username değeri tanımsız ! ";
+            $type = "error";
         }
         return json_encode(["message" => $message, "type" => $type]);
     } else {
@@ -139,6 +175,85 @@ function addUrlToDatabase($url, $tag, $conn)
         $type = "error";
     }
     return json_encode(["message" => $message, "type" => $type]);
+}
+
+function deleteUrlToDatabase($url, $conn)
+{
+    $short_url = $conn->real_escape_string($url);
+    if (!empty($short_url) && $short_url != "") {
+        if (isDoesExistShortUrl($short_url, $conn)) {
+            $query = "DELETE FROM urls WHERE short_url = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param('s', $short_url);
+            $deleted = $stmt->execute();
+            $stmt->close();
+            if ($deleted) {
+                $message = "$short_url - Link silindi ! ";
+                $type = "success";
+            } else {
+                $message = "Silinemedi ! ";
+                $type = "error";
+            }
+            return json_encode(["message" => $message, "type" => $type]);
+        } else {
+            $message = "Url bulunamadı ! ";
+            $type = "error";
+            return json_encode(["message" => $message, "type" => $type]);
+        }
+    } else {
+        $message = "data-tag değerine erişilemedi ! ";
+        $type = "error";
+    }
+    return json_encode(["message" => $message, "type" => $type]);
+}
+
+function editUrlToDatabase($url, $newUrl, $conn)
+{
+    $short_url = $conn->real_escape_string($url);
+    $new_url = $conn->real_escape_string($newUrl);
+    if (!empty($short_url) && $short_url != "") {
+        if (isDoesExistShortUrl($short_url, $conn)) {
+            if (isDoesExistShortUrl($new_url, $conn)) {
+                $message = $new_url . " - Zaten kullanılıyor başka bir takma ad seçin ! ";
+                $type = "error";
+            } else {
+                $query = "UPDATE urls SET short_url = ? WHERE short_url  = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param('ss', $new_url, $short_url);
+                $update = $stmt->execute();
+                $stmt->close();
+                if ($update) {
+                    $message = $short_url . " - " . $new_url . " ile değiştirildi";
+                    $type = "success";
+                } else {
+                    $message = "Güncelleme sırasında bir hata meydana geldi ! ";
+                    $type = "error";
+                }
+            }
+        } else {
+            $message = "Url bulunamadı ! ";
+            $type = "error";
+            return json_encode(["message" => $message, "type" => $type]);
+        }
+    } else {
+        $message = "data-tag değerine erişilemedi ! ";
+        $type = "error";
+    }
+    return json_encode(["message" => $message, "type" => $type]);
+}
+
+function isDoesExistUser($username, $conn)
+{
+    $query = "SELECT * FROM users WHERE user_name = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param('s', $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
+    if ($result->num_rows > 0) {
+        return true;
+    } else
+        return false;
 }
 
 function isDoesExistShortUrl($url, $conn)
