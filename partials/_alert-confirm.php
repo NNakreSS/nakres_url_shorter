@@ -1,8 +1,8 @@
 <div class="overlay" id="overlay"></div>
 <div class="custom-confirm" id="custom-confirm">
     <p>Yapmak istediniz işlemi onaylıyor musunuz ?</p>
-    <button id="confirm-yes">Evet</button>
-    <button id="confirm-no">Hayır</button>
+    <button id="confirm-yes" class="button green">Evet</button>
+    <button id="confirm-no" class="button red">Hayır</button>
 </div>
 <div class="alert-box"></div>
 <div id="edit-user-box">
@@ -14,7 +14,7 @@
             <span>Admin Yetkisi :</span>
             <input type="checkbox" name="isAdmin" id="edit_user_isAdmin">
         </div>
-        <button id="save_edit_user">Kaydet</button>
-        <button id="cancel_edit_user">İptal</button>
+        <button id="save_edit_user" class="button green">Kaydet</button>
+        <button id="cancel_edit_user" class="button red">İptal</button>
     </div>
 </div>

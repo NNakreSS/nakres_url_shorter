@@ -10,65 +10,68 @@
 }
 
 body {
-    min-height: 100vh;
+    min-height: 80vh;
     background-color: #232323 !important;
     position: relative;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 
 #light-left-top {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 10%;
+    left: 10%;
+    transform: translate(-50%, -50%);
     width: 50%;
     height: 50%;
     background: radial-gradient(ellipse at left top, rgba(113, 174, 212, 0.6) 0%, rgba(0, 0, 0, 0) 60%);
-    transform: translate(-40%, -20%);
-    filter: blur(100px);
+    filter: blur(5vw);
     z-index: -99;
 }
 
 #light-right-center {
     position: absolute;
-    bottom: 650px;
-    right: 0;
+    top: 35%;
+    right: -55%;
+    transform: translate(-50%, -50%);
     width: 50%;
     height: 70%;
     background: radial-gradient(ellipse at center bottom, rgba(113, 174, 212, 0.6) 0%, rgba(0, 0, 0, 0) 50%);
-    transform: translate(65%, 45%);
-    filter: blur(100px);
+    filter: blur(5vw);
     z-index: -99;
 }
 
 #light-center-bottom {
     position: fixed;
-    bottom: 0;
-    left: 0;
+    bottom: -55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 60%;
     height: 60%;
     background: radial-gradient(ellipse at center bottom, rgba(117, 191, 220, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
-    transform: translate(35%, 60%);
-    filter: blur(100px);
+    filter: blur(5vw);
     z-index: -99;
 }
 
 header {
     width: 100%;
-    height: 50px;
+    height: 3.5vw;
     background-color: #1C1C1C;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0px;
-    border-bottom: 3px solid #4A4A4A;
+    padding: .7vw 0;
+    border-bottom: .2vw solid #4A4A4A;
 }
 
 header #logo {
+    display: flex;
+    align-items: center;
     margin-left: 5%;
     height: 100%;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 1.5vw;
+    font-weight: 700;
+    filter: drop-shadow(-.2vw .2vw .05vw #00aaffab);
 }
 
 header #login-controll {
@@ -84,13 +87,14 @@ header #login-controll #user {
     display: flex;
     align-items: center;
     justify-content: start;
-    padding: 15px;
-    border-radius: 5px;
+    padding: 1vw;
+    border-radius: .3em;
     height: 100%;
-    width: 200px;
-    border: 1px solid rgb(122, 122, 122);
+    width: 10vw;
+    border: .05vw solid rgb(122, 122, 122);
     background: rgb(51, 51, 51);
     background: linear-gradient(61deg, rgba(51, 51, 51, 0.2189250700280112) 0%, rgba(0, 1, 0, 0) 100%);
+    font-size: 1vw;
 }
 
 header #login-controll #user .user-icon {
@@ -99,43 +103,78 @@ header #login-controll #user .user-icon {
 
 header #login-controll #log-out {
     height: 120%;
-    width: 100px;
-    background: rgb(255, 0, 0);
-    background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
-    color: red;
-    border: 2px solid red;
-    font-weight: 500;
+    width: 50%;
     letter-spacing: .05rem;
 }
 
-header #login-controll #log-out:hover:enabled {
-    background: red;
-    color: white;
-}
-
+/* buttons */
 button {
-    border-radius: 5px;
+    border-radius: .3em;
     border: none;
     outline: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-weight: 800;
+    font-weight: 600;
+    font-size: .9vw;
 }
 
+
+button:disabled {
+    border: none !important;
+    cursor: not-allowed !important;
+}
+
+.button.green {
+    color: green;
+    border: .05vw solid green;
+    background: rgb(1, 255, 0);
+    background: linear-gradient(61deg, rgba(1, 255, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+}
+
+.button.red {
+    background: rgb(255, 0, 0);
+    background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+    color: rgba(255, 0, 0, 0.6);
+    border: .05vw solid rgba(255, 0, 0, 0.6);
+}
+
+.button.blue {
+    background: rgb(0, 172, 255);
+    background: linear-gradient(61deg, rgba(0, 172, 255, 0.05926120448179273) 0%, rgba(0, 1, 0, 0) 100%);
+    border: .05vw solid #00aaff;
+    color: #00aaffde;
+}
+
+.button.green:hover:enabled {
+    background: green;
+    color: white;
+}
+
+.button.blue:hover:enabled {
+    background: #00aaff;
+    color: #ffffff;
+}
+
+.button.red:hover:enabled {
+    background: rgba(255, 0, 0, 0.6);
+    color: white;
+}
+
+/* webkit */
 ::-webkit-scrollbar {
-    width: 5px;
+    width: .3rem;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
     background: #515151;
-    border-radius: 5px;
+    border-radius: .3em;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #818181;
-    border-radius: 5px;
+    border-radius: .3em;
 }
 
 main {
@@ -144,13 +183,13 @@ main {
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+    gap: 1.3%;
     grid-template-areas:
         "total total new_user"
         "url-form url-form users"
         "links links users"
         "links links all-links";
-    padding: 20px 0px;
+    padding: 2% 0;
 }
 
 
@@ -159,20 +198,20 @@ footer {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 40px;
+    height: 2.5vw;
     background-color: #1C1C1C;
     color: rgb(201, 201, 201);
-    padding: 10px;
-    border-top: 3px solid #4A4A4A;
-    font-size: .9rem;
+    padding: 1rem;
+    border-top: .2vw solid #4A4A4A;
+    font-size: .9vw;
 }
 
 main .box-item {
     background-color: #1C1C1C;
-    border-top: 4px solid #00b3ff;
-    border-top-right-radius: 2px;
-    border-top-left-radius: 2px;
-    box-shadow: 0px 3px 5px 0px #000000;
+    border-top: .2rem solid #00b3ff;
+    border-top-right-radius: .2rem;
+    border-top-left-radius: .2rem;
+    box-shadow: 0 .1rem .3rem 0 #000000;
 }
 
 label {
@@ -182,21 +221,22 @@ label {
     justify-content: center;
     background-color: #232323;
     width: 90%;
-    height: 40px;
+    height: 2.3vw;
     color: #00b3ff;
-    border: 1px solid #00b3ff;
+    border: .08rem solid #00b3ff;
+    font-size: 1vw;
 }
 
 label i {
     position: absolute;
-    left: 10px;
+    left: 1rem;
 }
 
 /* total infos  */
 
 main #total-infos {
     grid-area: total;
-    height: 140px;
+    height: 8vw;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -206,7 +246,7 @@ main #total-infos {
     width: 48%;
     height: 80%;
     background-color: #232323;
-    border-radius: 10px;
+    border-radius: .3em;
 }
 
 
@@ -214,7 +254,7 @@ main #total-infos {
     display: flex;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: .3em;
     align-items: center;
     position: relative;
 }
@@ -223,8 +263,8 @@ main #total-infos {
 #total-infos .total-icon {
     display: block;
     margin: 0 5%;
-    border-radius: 10px;
-    font-size: 3rem;
+    border-radius: .3em;
+    font-size: 3vw;
     color: #00b3ff;
 }
 
@@ -232,16 +272,16 @@ main #total-infos {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 10px;
+    border-radius: .3em;
     color: white;
     font-weight: bolder;
-    font-size: 1.5rem;
+    font-size: 1.5vw;
 }
 
 #total-infos .total-bg {
     position: absolute;
-    right: 10px;
-    font-size: 5rem;
+    right: .8rem;
+    font-size: 5vw;
     color: #3e3e3e;
 }
 
@@ -254,7 +294,7 @@ main #total-infos {
 
 main #new-user {
     grid-area: new_user;
-    height: 140px;
+    height: 8vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -283,9 +323,9 @@ main #new-user {
     height: 40%;
     width: 49%;
     outline: none;
-    padding: 0 20px;
-    font-size: 1rem;
-    border: 1px solid #3a3a3a;
+    padding: 0 1rem;
+    font-size: 1vw;
+    border: .1rem solid #3a3a3a;
     transition: all 0.1s ease;
     caret-color: #cecece;
     background-color: #232323;
@@ -295,7 +335,7 @@ main #new-user {
 
 #new_user_box form input::placeholder {
     color: rgba(181, 181, 181, 0.215);
-    font-size: .9rem;
+    font-size: .8vw;
 }
 
 #new_user_box form input:focus {
@@ -306,15 +346,6 @@ main #new-user {
     height: 40%;
     width: 49%;
     align-self: flex-end;
-    color: green;
-    background: rgb(1, 255, 0);
-    background: linear-gradient(61deg, rgba(1, 255, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
-    border: 2px solid #558B4C;
-}
-
-#new_user_box #save_new_user:hover:enabled {
-    background: green;
-    color: white;
 }
 
 #new_user_box .check-box {
@@ -324,9 +355,8 @@ main #new-user {
     height: 40%;
     width: 49%;
     color: white;
-    font-size: 1rem;
-    letter-spacing: 1.2px;
-    border-bottom: 2px solid #49fcff;
+    font-size: 1vw;
+    border-bottom: .2vw solid #49fcff;
 }
 
 #new_user_box .check-box input {
@@ -343,12 +373,11 @@ main #url-form {
     align-items: center;
     justify-content: center;
     grid-area: url-form;
-    height: 110px;
+    height: 8vw;
     position: relative;
 }
 
 #url-form form {
-    /* background-color: #00b3ff; */
     height: 90%;
     width: 97%;
     display: flex;
@@ -361,18 +390,18 @@ main #url-form {
     width: 100%;
     height: 30%;
     outline: none;
-    padding: 0 40px;
-    font-size: .8rem;
-    border: 1px solid #019be2;
+    padding: 0 2vw;
+    font-size: 1vw;
+    border: .08vw solid #019be2;
     transition: all 0.1s ease;
     caret-color: #cecece;
     background-color: #232323;
     color: #cecece;
-    border-radius: 5px;
+    border-radius: .3em;
 }
 
 #url-form input::placeholder {
-    font-size: .8rem;
+    font-size: .8vw;
     font-weight: 700;
     color: rgba(151, 151, 151, 0.281);
 }
@@ -380,16 +409,17 @@ main #url-form {
 #url-form form .url-form-icon {
     position: absolute;
     color: #00b3ff;
+    font-size: 1vw;
 }
 
 #url-form form .url-form-icon.long {
-    top: 22px;
-    left: 2%;
+    top: 21%;
+    left: 2.5%;
 }
 
 #url-form form .url-form-icon.tag {
-    top: 68px;
-    left: 2%;
+    top: 66%;
+    left: 2.5%;
 }
 
 #url-form #short_url_tag::placeholder {
@@ -406,25 +436,17 @@ main #url-form {
 #url-form #short_button {
     position: absolute;
     right: 1.5%;
-    bottom: 20px;
+    bottom: 1vw;
     width: 10%;
     height: 30%;
-    background: rgb(0, 172, 255);
-    background: linear-gradient(61deg, rgba(0, 172, 255, 0.05926120448179273) 0%, rgba(0, 1, 0, 0) 100%);
-    border: 2px solid #00aaff;
-    color: #00aaff;
 }
 
-#url-form #short_button:hover:enabled {
-    background: #00aaff;
-    color: #ffffff;
-}
 
 /* users */
 
 main #users {
     grid-area: users;
-    height: 400px;
+    height: 25vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -441,7 +463,6 @@ main #users {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    /* background-color: #00aaff; */
 }
 
 
@@ -453,31 +474,32 @@ main #users {
     align-content: flex-start;
     flex-wrap: wrap;
     overflow-y: auto;
-    gap: 10px;
+    gap: .5vw;
 }
 
 #user-list .user-item {
     width: 98%;
-    height: 50px;
+    height: 3vw;
     color: #fff;
     padding: 1%;
-    border-left: 5px solid #00b3ff;
-    border-radius: 2px;
+    border-left: .3vw solid #00b3ff;
+    border-radius: .2vw;
     background: #232323;
-    box-shadow: inset 15px 0 20px -18px rgba(0, 179, 255, 0.911);
+    box-shadow: inset 1vw 0 1.5vw -1.3vw rgba(0, 179, 255, 0.911);
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding-left: 40px;
-    padding-right: 10px;
+    padding-left: 2.5vw;
+    padding-right: 1vw;
+    font-size: 1.2vw;
 }
 
 .user-item i {
     position: absolute;
-    left: 10px;
+    left: .5vw;
     color: #5C5C5C;
-    font-size: 1.2rem;
+    font-size: 1.2vw;
 }
 
 .user-item i.admin {
@@ -490,79 +512,51 @@ main #users {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 5px;
+    gap: .3vw;
 }
 
 .user-item button {
     width: 50%;
-}
-
-.user-item .delete-user {
     height: 70%;
-    background: rgb(255, 0, 0);
-    background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
-    color: rgba(255, 0, 0, 0.6);
-    border: 1px solid rgba(255, 0, 0, 0.6);
-    font-weight: 300;
-    font-size: 1rem;
+    text-align: center;
 }
-
-.user-item .delete-user:hover:enabled {
-    background: rgba(255, 0, 0, 0.6);
-    color: white;
-}
-
-.user-item .edit-user {
-    height: 70%;
-    background: linear-gradient(61deg, rgba(0, 200, 255, 0.051) 0%, rgba(0, 1, 1, 0) 100%);
-    color: rgba(0, 174, 255, 0.6);
-    border: 1px solid rgba(0, 174, 255, 0.6);
-    font-weight: 300;
-    font-size: 1rem;
-}
-
-.user-item .edit-user:hover:enabled {
-    background: rgba(0, 174, 255, 0.6);
-    color: white;
-}
-
 
 /* links */
 
 main #links {
     grid-area: links;
-    height: 700px;
+    height: 42vw;
     display: flex;
     flex-wrap: wrap;
-    padding: 25px;
+    padding: 1.5vw;
     overflow-y: auto;
-    gap: 10px;
-    align-content: flex-start
+    align-content: flex-start;
+    gap: 1vw;
 }
 
 #links .link-item {
     width: 100%;
     background-color: #232323;
-    height: 160px;
-    padding: 15px 40px;
+    height: 10vw;
+    padding: 1vw 2vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    border-bottom: .2vw solid rgba(255, 255, 255, 0.2);
 }
 
 .link-item .content {
-    width: 60%;
+    width: 80%;
     height: 100%;
-
+    font-size: 1vw;
 }
 
 .link-item .head {
     height: 20%;
-    width: 100%;
+    /* width: 100%; */
     color: white;
-    font-size: 1.2rem;
-    margin-bottom: 2%;
+    font-size: 1.2vw;
+    margin-bottom: 1%;
 }
 
 .link-item .head div {
@@ -579,11 +573,11 @@ main #links {
     visibility: hidden;
     z-index: 1;
     color: rgb(245, 245, 245);
-    font-size: .8rem;
+    font-size: .8vw;
     background-color: #444444;
-    border-radius: 2px;
-    padding: 10px 15px 10px 15px;
-    border-bottom: 2px solid orange;
+    border-radius: .3em;
+    padding: .5vw 1vw;
+    border-bottom: .2vw solid orange;
 }
 
 .link-item .head div:hover .tooltip-text {
@@ -606,7 +600,7 @@ main #links {
 
 .url .full-url {
     color: turquoise;
-    max-width: 250px;
+    max-width: 24vw;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -626,19 +620,18 @@ main #links {
     height: 30%;
     margin: 2% 0;
     outline: none;
-    padding: 0 10px;
-    font-size: 1rem;
-    border: 1px solid #3a3a3a;
+    padding: 0 1vw;
+    font-size: 1vw;
+    border: .08vw solid #3a3a3a;
     transition: all 0.1s ease;
     caret-color: #a3a3a3;
     background-color: #232323;
     color: white;
-    align-self: flex-end;
 }
 
 .link-info input::placeholder {
     color: rgb(121, 121, 121);
-    font-size: .9rem;
+    font-size: .9vw;
 }
 
 .link-info input:focus {
@@ -656,66 +649,40 @@ main #links {
 }
 
 #links .link-action {
-    width: 40%;
+    width: 20%;
     height: 100%;
     display: flex;
     justify-content: end;
     align-items: center;
-    gap: 10px;
+    gap: .5vw;
 }
 
 
 .link-action button {
-    width: 30%;
+    width: 49%;
     height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 500;
-    letter-spacing: 1px;
-}
-
-.link-action .edit-url {
-    background: rgb(1, 255, 0);
-    background: linear-gradient(61deg, rgba(1, 255, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
-    color: green;
-    border: 2px solid green;
-}
-
-.link-action .edit-url:hover:enabled {
-    background: green;
-    color: white;
-}
-
-.link-action .delete-url {
-    background: rgb(255, 0, 0);
-    background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
-    color: red;
-    border: 2px solid red;
-}
-
-.link-action .delete-url:hover:enabled {
-    background: red;
-    color: white;
+    letter-spacing: .1vw;
 }
 
 #non-link-info {
-    font-size: 1.5rem;
+    font-size: 1.5vw;
     color: rgb(139, 139, 139);
-
 }
 
 /* all links */
 
 main #all-links {
     grid-area: all-links;
-    height: 400px;
+    height: 25vw;
     display: flex;
     align-items: start;
     justify-content: center;
-    padding: 20px 10px;
+    padding: 1vw;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 2vw;
 }
 
 #all-links #link-list {
@@ -725,29 +692,33 @@ main #all-links {
     width: 90%;
     height: 88%;
     overflow-y: auto;
-    gap: 10px;
+    gap: .6vw;
 }
 
 #all-links .all-link.item {
     width: 98%;
-    height: 50px;
+    height: 3vw;
     color: #fff;
     padding: 1%;
-    border-left: 5px solid #00b3ff;
-    border-radius: 2px;
+    border-left: .3vw solid #00b3ff;
+    border-radius: .3vw;
     background: #232323;
-    box-shadow: inset 15px 0 20px -18px rgba(0, 179, 255, 0.911);
+    box-shadow: inset 1vw 0 1.5vw -1.3vw rgba(0, 179, 255, 0.911);
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: .8rem;
+    padding-left: .8vw;
+    padding-right: 1vw;
+    font-size: .8vw;
 }
 
 #all-links .all-link.info a {
     color: antiquewhite;
+    max-width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #all-links .all-link.creator {
@@ -757,18 +728,7 @@ main #all-links {
 #all-links .all-link.delete {
     width: 20%;
     height: 70%;
-    background: rgb(255, 0, 0);
-    background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
-    color: rgba(255, 0, 0, 0.6);
-    border: 1px solid rgba(255, 0, 0, 0.6);
-    letter-spacing: 2px;
-    font-weight: 300;
-    font-size: 1rem;
-}
-
-#all-links .all-link.delete:hover:enabled {
-    background: rgba(255, 0, 0, 0.6);
-    color: white;
+    letter-spacing: .1vw;
 }
 
 /* login page  */
@@ -783,20 +743,19 @@ main #all-links {
     width: 100%;
 }
 
-
 #login-container #login_page {
     flex: .3;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    min-height: calc(100vh - 350px) !important;
+    min-height: 30vw;
     width: 30%;
     background-color: #1C1C1C;
-    border-top: 4px solid #00b3ff;
-    border-top-right-radius: 2px;
-    border-top-left-radius: 2px;
-    box-shadow: 0px 3px 5px 0px #000000;
+    border-top: .3vw solid #00b3ff;
+    border-top-right-radius: .3vw;
+    border-top-left-radius: .3vw;
+    box-shadow: 0 .3vw .5vw 0 #000000;
     padding: 1%;
 }
 
@@ -808,21 +767,21 @@ main #all-links {
     align-content: center;
     position: relative;
     height: 85%;
-    gap: 20px;
+    gap: 1vw;
     margin-top: 2%;
 }
 
 #login_page input {
     width: 90%;
     outline: none;
-    padding: 5px 20px;
-    font-size: 1rem;
-    border: 1px solid #3a3a3a;
+    padding: .5vw 2vw;
+    font-size: 1vw;
+    border: .1vw solid #3a3a3a;
     transition: all 0.1s ease;
     caret-color: #a3a3a3;
     background-color: #232323;
     color: white;
-    border-radius: 5px;
+    border-radius: .3em;
 }
 
 #login_page input:focus {
@@ -835,30 +794,21 @@ main #all-links {
 
 #login_page input::placeholder {
     color: rgba(181, 181, 181, 0.215);
-    font-size: .9rem;
+    font-size: .9vw;
 }
 
 #login_page #login_button {
     width: 80%;
-    background: green;
-    color: rgb(221, 221, 221);
-    padding: 10px;
+    padding: .6vw;
     margin-top: 10%;
-    border: 2px solid green;
-}
-
-#login_page #login_button:hover:enabled {
-    background: none;
-    color: green;
 }
 
 /* alerts  */
 .alert-box {
-    min-height: 50px;
     position: fixed;
     text-align: center;
-    top: 20px;
-    left: 10px;
+    top: 2vw;
+    left: 2vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -866,63 +816,58 @@ main #all-links {
 }
 
 .alert-box .alert {
-    padding: 20px 20px 20px 60px;
+    padding: 1vw 1vw 1vw 4vw;
     text-align: center;
     color: rgba(255, 255, 255, 0.781);
-    font-size: 1rem;
-    border-radius: 3px;
+    font-size: 1vw;
+    border-radius: .3em;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
     background-color: #1c1c1cff;
-    border: 1px solid #b8b8b840;
+    border: .1vw solid #8a8a8a40;
 }
 
 .alert i {
-    font-size: 1.8rem;
+    font-size: 1.8vw;
     position: absolute;
-    left: 1rem;
+    left: 1vw;
     margin-right: 5%;
 }
 
 .alert.info i {
     color: orange;
-    /* filter: drop-shadow(0 0 .3rem orange); */
 }
 
 
 .alert.error i {
     color: red;
-    /* filter: drop-shadow(0 0 .3rem red); */
 }
 
 .alert.success i {
     color: green;
-    /* filter: drop-shadow(0 0 .3rem green); */
 }
 
 .alert.info {
-    border-bottom: 2px solid orange;
+    border-bottom: .3vw solid orange;
 }
 
-
 .alert.error {
-    border-bottom: 2px solid red;
-
+    border-bottom: .3vw solid red;
 }
 
 .alert.success {
-    border-bottom: 2px solid green;
+    border-bottom: .3vw solid green;
 }
 
 .alert .closebtn {
-    margin-left: 15px;
+    margin-left: 1vw;
     color: white;
     font-weight: 600;
     float: right;
-    font-size: 2rem;
-    line-height: 1.5rem;
+    font-size: 2vw;
+    line-height: 1.5vw;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -937,47 +882,26 @@ main #all-links {
     display: none;
     background-color: #232323;
     color: white;
-    border-bottom: 3px solid rgb(0, 0, 0);
-    max-width: 500px;
-    padding: 20px;
+    border-bottom: .3vw solid rgb(0, 0, 0);
+    max-width: 35vw;
+    min-width: 25vw;
+    padding: 1.5vw;
     text-align: center;
     position: fixed;
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9999;
-    box-shadow: 0px 0px 20px -10px black;
-    border-radius: 5px;
+    box-shadow: 0 0 1vw -.5vw black;
+    border-radius: .3em;
     word-spacing: .2rem;
+    word-wrap: break-word;
 }
 
 .custom-confirm button {
-    width: 40%;
-    color: green;
-    padding: 10px;
-    margin-top: 10%;
-    border: 2px solid green;
-    font-size: 1rem;
-    padding: 5px;
-    background: rgb(1, 255, 0);
-    background: linear-gradient(61deg, rgba(1, 255, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
-}
-
-.custom-confirm button:hover {
-    color: rgb(255, 255, 255);
-    background: green;
-}
-
-.custom-confirm #confirm-no {
-    background: rgb(255, 0, 0);
-    background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
-    color: red;
-    border: 2px solid red;
-}
-
-.custom-confirm #confirm-no:hover {
-    color: rgb(255, 255, 255);
-    background: red;
+    width: 30%;
+    padding: .5vw;
+    margin-top: 5%;
 }
 
 .overlay {
@@ -987,14 +911,9 @@ main #all-links {
     left: 0;
     height: 100%;
     width: 100%;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(.3vw);
     background: rgba(0, 0, 0, 0.01);
     z-index: 9999;
-}
-
-button:disabled {
-    cursor: not-allowed;
-    border: none !important;
 }
 
 /* edit user  */
@@ -1005,8 +924,8 @@ button:disabled {
     align-items: center;
     justify-content: center;
     color: white;
-    width: 500px;
-    padding: 20px;
+    width: 35vw;
+    padding: 1.5vw;
     text-align: center;
     position: fixed;
     top: 30%;
@@ -1015,11 +934,10 @@ button:disabled {
     z-index: 9999;
     word-spacing: .2rem;
     background-color: #1C1C1C;
-    border-bottom: 4px solid #00b3ff;
-    border-bottom-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    box-shadow: 0px 3px 5px 0px #000000;
-    gap: 20px;
+    border-bottom: .4vw solid #00b3ff;
+    border-radius: .3em;
+    box-shadow: 0 .3vw .5vw 0 #000000;
+    gap: 1.3vw;
 }
 
 #edit-user-box .content {
@@ -1029,54 +947,27 @@ button:disabled {
     justify-content: center;
     align-content: start;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 1vw;
 }
 
 #edit-user-box button {
     width: 40%;
-    color: green;
-    padding: 10px;
-    border: 2px solid green;
-    font-size: 1rem;
-    padding: 5px;
-    background: rgb(1, 255, 0);
-    background: linear-gradient(61deg, rgba(1, 255, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+    font-size: 1vw;
     justify-self: end;
-}
-
-#edit-user-box button:hover {
-    color: rgb(255, 255, 255);
-    background: green;
-}
-
-#edit-user-box #cancel_edit_user {
-    width: 40%;
-    color: red;
-    padding: 10px;
-    border: 2px solid red;
-    font-size: 1rem;
-    padding: 5px;
-    background: rgb(255, 0, 0);
-    background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
-    justify-self: end;
-}
-
-#edit-user-box #cancel_edit_user:hover {
-    color: rgb(255, 255, 255);
-    background: red;
+    padding: .2vw;
 }
 
 #edit-user-box input {
     width: 90%;
     outline: none;
-    padding: 5px 20px;
-    font-size: 1rem;
-    border: 1px solid #3a3a3a;
+    padding: .2vw 1vw;
+    font-size: 1vw;
+    border: .1vw solid #3a3a3a;
     transition: all 0.1s ease;
     caret-color: #a3a3a3;
     background-color: #232323;
     color: white;
-    border-radius: 5px;
+    border-radius: .3em;
 }
 
 #edit-user-box input:focus {
@@ -1089,7 +980,7 @@ button:disabled {
 
 #edit-user-box input::placeholder {
     color: rgba(181, 181, 181, 0.215);
-    font-size: .9rem;
+    font-size: .9vw;
 }
 
 #edit-user-box .check-box {
@@ -1099,13 +990,51 @@ button:disabled {
     height: 40%;
     width: 60%;
     color: white;
-    font-size: 1rem;
-    letter-spacing: 1.2px;
-    border-bottom: 2px solid #49fcff;
+    font-size: 1vw;
+    border-bottom: .2vw solid #49fcff;
 }
 
 #edit-user-box .check-box input {
     background-color: #000000;
     height: 60%;
     width: 20%;
+}
+
+/* Küçük mobil cihazlar */
+@media screen and (max-width: 480px) and (max-width: 767px) {
+    main {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.3%;
+        grid-template-areas:
+            "total"
+            "url-form"
+            "links"
+            "new_user"
+            "users"
+            "all-links";
+        padding: 2% 0;
+    }
+
+    #links .link-item {
+        height: 15vw;
+    }
+
+    main #url-form {
+        height: 13vw;
+    }
+
+    main #new-user {
+        height: 20vw;
+    }
+
+    #user-list .user-item {
+        height: 5vw;
+    }
+
+    #all-links .all-link.item {
+        height: 5vw;
+    }
 }

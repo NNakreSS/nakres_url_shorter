@@ -35,21 +35,26 @@ window.onload = () => {
 
     if (login_button)
         login_button.onclick = () => {
-            buttonDisabledTime(login_button, 3)
             const username = login_username.value;
             const password = login_password.value;
-            fetch(service, {
-                method: 'POST',
-                body: new URLSearchParams({ username: username, password: password, type: "login" })
-            }).then(response => {
-                if (!response.ok) throw new Error("Network response was not ok");
-                return response.json();
-            }).then(async (result) => {
-                await createAlert(result["message"], result["type"]);
-                if (result["type"] == "success") {
-                    location.reload();
-                }
-            })
+            console.log(username, password);
+            buttonDisabledTime(login_button, 3)
+            if (username != "" && password != "") {
+                fetch(service, {
+                    method: 'POST',
+                    body: new URLSearchParams({ username: username, password: password, type: "login" })
+                }).then(response => {
+                    if (!response.ok) throw new Error("Network response was not ok");
+                    return response.json();
+                }).then(async (result) => {
+                    await createAlert(result["message"], result["type"]);
+                    if (result["type"] == "success") {
+                        location.reload();
+                    }
+                })
+            } else {
+                createAlert("Kullanıcı adı ve şifre alanını boş bırakamazsın", "error", 4);
+            }
         };
 
     if (logout_button)

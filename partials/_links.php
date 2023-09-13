@@ -32,8 +32,8 @@
                     </div>
                 </div>
                 <div class="link-action">
-                    <button data-tag="<?php echo $url['short_url'] ?>" class="edit-url">Düzenle</button>
-                    <button data-tag="<?php echo $url['short_url'] ?>" class="delete-url">Sil</button>
+                    <button data-tag="<?php echo $url['short_url'] ?>" class="edit-url button green">Düzenle</button>
+                    <button data-tag="<?php echo $url['short_url'] ?>" class="delete-url button red">Sil</button>
                 </div>
             </div>
             <?php

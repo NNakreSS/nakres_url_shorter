@@ -17,7 +17,8 @@
                                 </span>
                             </div>
                         </div>
-                        <button data-tag="<?php echo $url['short_url'] ?>" class="all-link delete delete-url">Sil</button>
+                        <button data-tag="<?php echo $url['short_url'] ?>"
+                            class="all-link delete delete-url button red">Sil</button>
                     </div>
                     <?php
                 }

@@ -7,6 +7,6 @@
                 <?php echo $_SESSION["user_name"] ?>
             </div>
         </div>
-        <button class="button" id="log-out">Çıkış Yap</button>
+        <button class="button red" id="log-out">Çıkış Yap</button>
     </div>
 </header>

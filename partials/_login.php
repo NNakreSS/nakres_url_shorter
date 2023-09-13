@@ -6,7 +6,7 @@
             <input type="text" name="username" id="login_username" placeholder="Kullanıcı Adınız">
             <input type="password" name="password" id="login_password" placeholder="Şifreniz">
             <input type="hidden" name="type" value="login">
-            <button class='button' id="login_button">Giriş Yap</button>
+            <button class='button green' id="login_button">Giriş Yap</button>
         </form>
     </div>
 </div>
