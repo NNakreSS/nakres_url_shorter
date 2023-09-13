@@ -192,7 +192,6 @@ main {
     padding: 2% 0;
 }
 
-
 footer {
     display: flex;
     align-items: center;
@@ -1001,7 +1000,7 @@ main #all-links {
 }
 
 /* Küçük mobil cihazlar */
-@media screen and (max-width: 480px) and (max-width: 767px) {
+@media screen and (max-width: 767px) {
     main {
         width: 90%;
         margin: auto;
@@ -1029,6 +1028,15 @@ main #all-links {
     main #new-user {
         height: 20vw;
     }
+
+    main #users {
+        height: 50vw;
+    }
+
+    main #all-links {
+        height: 50vw;
+    }
+
 
     #user-list .user-item {
         height: 5vw;
