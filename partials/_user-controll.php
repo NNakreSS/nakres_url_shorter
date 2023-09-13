@@ -9,7 +9,7 @@ if ($_SESSION['isAdmin'] == 1) {
                 <input type="text" id="new_user_password" name="password" placeholder="Şifre" spellcheck="false">
                 <div class="check-box">
                     <span>Admin Yetkisi :</span>
-                    <input type="checkbox" name="isAdmin" id="new_user_isAdmin">
+                    <input type="checkbox" name="isAdmin" id="user_isAdmin">
                 </div>
                 <button class="button" id="save_new_user">Kaydet</button>
             </form>

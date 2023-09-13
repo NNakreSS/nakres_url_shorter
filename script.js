@@ -17,7 +17,8 @@ const forms = document.querySelectorAll('form'),
     edit_url_button = document.querySelectorAll('.edit-url'),
     delete_url_button = document.querySelectorAll('.delete-url'),
     delete_user_button = document.querySelectorAll('.delete-user'),
-    edit_user_button = document.querySelectorAll('.edit-user');
+    edit_user_button = document.querySelectorAll('.edit-user'),
+    edit_user_isAdmin = document.querySelector("#edit_user_isAdmin");
 
 const service = 'service/_service.php'
 
@@ -207,26 +208,51 @@ window.onload = () => {
     if (edit_user_button)
         edit_user_button.forEach(async (editbtn) => {
             editbtn.onclick = async () => {
-                // const userName = editbtn.dataset['username'];
-                // const userConfirmed = await myConfirm(`'${userName}'  Kullanıcısını silmek istediğinize emin misiniz (Oluşturduğu tüm linkler silinecek) ? `)
-                // if (userConfirmed) {
-                //     buttonDisabledTime(editbtn, 4)
-                //     fetch(service, {
-                //         method: 'POST',
-                //         body: new URLSearchParams({ type: "delete_user", username: userName })
-                //     }).then((response) => {
-                //         if (!response.ok) throw new Error("Network response was not ok");
-                //         // console.log(response.text())
-                //         return response.json()
-                //     }).then(async (result) => {
-                //         await createAlert(result["message"], result["type"]);
-                //         if (result["type"] == "success") {
-                //             setTimeout(() => {
-                //                 location.reload();
-                //             }, 2000);
-                //         }
-                //     })
-                // }
+                const edit_box = document.querySelector("#edit-user-box");
+                const name_input = edit_box.querySelector('#edit_user_name');
+                const password_input = edit_box.querySelector('#edit_user_password');
+                const save = edit_box.querySelector('#save_edit_user');
+                const cancel = edit_box.querySelector('#cancel_edit_user');
+                const user_name = editbtn.dataset['username'];
+                const isAdmin = editbtn.dataset['isadmin'] == 1 ? true : false;
+                edit_user_isAdmin.checked = isAdmin;
+                name_input.value = user_name;
+                overlay.style.display = "block";
+                edit_box.style.display = "flex";
+                cancel.onclick = () => {
+                    overlay.style.display = "none";
+                    edit_box.style.display = "none";
+                    password_input.value = "";
+                    name_input.value = "";
+                };
+                save.onclick = () => {
+                    const newName = name_input.value.trim();
+                    const newPassword = password_input.value
+                    const newisAdmin = edit_user_isAdmin.checked;
+                    if (user_name == newName && newPassword == "" && newisAdmin == isAdmin) {
+                        createAlert("Bir değişiklik yapmadınız", "info", 1);
+                    } else {
+                        buttonDisabledTime(editbtn, 3)
+                        fetch(service, {
+                            method: 'POST',
+                            body: new URLSearchParams({ type: "update_user", username: user_name, new_user_name: newName, new_passowrd: newPassword, isAdmin: newisAdmin })
+                        }).then((response) => {
+                            if (!response.ok) throw new Error("Network response was not ok");
+                            return response.json()
+                        }).then(async (result) => {
+                            await createAlert(result["message"], result["type"]);
+                            if (result["type"] == "success") {
+                                setTimeout(() => {
+                                    location.reload();
+                                }, 2000);
+                            }
+                        })
+                    }
+                    overlay.style.display = "none";
+                    edit_box.style.display = "none";
+                    password_input.value = "";
+                    name_input.value = "";
+                };
             }
         });
 }

@@ -996,3 +996,116 @@ button:disabled {
     cursor: not-allowed;
     border: none !important;
 }
+
+/* edit user  */
+
+#edit-user-box {
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 500px;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    word-spacing: .2rem;
+    background-color: #1C1C1C;
+    border-bottom: 4px solid #00b3ff;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    box-shadow: 0px 3px 5px 0px #000000;
+    gap: 20px;
+}
+
+#edit-user-box .content {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-content: start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#edit-user-box button {
+    width: 40%;
+    color: green;
+    padding: 10px;
+    border: 2px solid green;
+    font-size: 1rem;
+    padding: 5px;
+    background: rgb(1, 255, 0);
+    background: linear-gradient(61deg, rgba(1, 255, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+    justify-self: end;
+}
+
+#edit-user-box button:hover {
+    color: rgb(255, 255, 255);
+    background: green;
+}
+
+#edit-user-box #cancel_edit_user {
+    width: 40%;
+    color: red;
+    padding: 10px;
+    border: 2px solid red;
+    font-size: 1rem;
+    padding: 5px;
+    background: rgb(255, 0, 0);
+    background: linear-gradient(61deg, rgba(255, 0, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+    justify-self: end;
+}
+
+#edit-user-box #cancel_edit_user:hover {
+    color: rgb(255, 255, 255);
+    background: red;
+}
+
+#edit-user-box input {
+    width: 90%;
+    outline: none;
+    padding: 5px 20px;
+    font-size: 1rem;
+    border: 1px solid #3a3a3a;
+    transition: all 0.1s ease;
+    caret-color: #a3a3a3;
+    background-color: #232323;
+    color: white;
+    border-radius: 5px;
+}
+
+#edit-user-box input:focus {
+    border-color: #00b3ff;
+}
+
+#edit-user-box input:focus::placeholder {
+    color: #019be292;
+}
+
+#edit-user-box input::placeholder {
+    color: rgba(181, 181, 181, 0.215);
+    font-size: .9rem;
+}
+
+#edit-user-box .check-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 60%;
+    color: white;
+    font-size: 1rem;
+    letter-spacing: 1.2px;
+    border-bottom: 2px solid #49fcff;
+}
+
+#edit-user-box .check-box input {
+    background-color: #000000;
+    height: 60%;
+    width: 20%;
+}

@@ -18,6 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         case 'delete_user':
             echo deleteUserToDatabase($_POST['username'], $conn);
             break;
+        case 'update_user':
+            echo updateUserToDatabase($_POST['username'], $_POST['new_user_name'], $_POST['new_passowrd'], $_POST['isAdmin'], $conn);
+            break;
         case 'add_new_url':
             echo addUrlToDatabase($_POST['full_url'], $_POST['short_tag'], $conn);
             break;
@@ -123,6 +126,59 @@ function deleteUserToDatabase($username, $conn)
                     $type = "success";
                 } else {
                     $message = "Kullanıcı silinirken bir hata meydana geldi";
+                    $type = "error";
+                }
+            } else {
+                $message = "Kullanıcı bulunamadı ! ";
+                $type = "error";
+            }
+        } else {
+            $message = "username değeri tanımsız ! ";
+            $type = "error";
+        }
+        return json_encode(["message" => $message, "type" => $type]);
+    } else {
+        echo "Bunun için yetkin yok ! ";
+    }
+}
+
+function updateUserToDatabase($username, $new_user_name, $new_password, $isAdmin, $conn)
+{
+    if ($_SESSION['isAdmin'] == 1) {
+        if ((!empty($username))) {
+            $username = $conn->real_escape_string($username);
+            $new_user_name = $conn->real_escape_string($new_user_name);
+            $new_password = $conn->real_escape_string($new_password);
+            if ($isAdmin == "true") {
+                $isAdmin = 1;
+            } else {
+                $isAdmin = 0;
+            }
+            if (isDoesExistUser($username, $conn)) {
+                $query = "UPDATE users SET user_name = ?, isAdmin = ? WHERE user_name = ?";
+
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("sis", $new_user_name, $isAdmin, $username);
+                $result = $stmt->execute();
+                $stmt->close();
+                if ($new_password != "") {
+                    $password = password_hash($new_password, PASSWORD_DEFAULT);
+                    $query = "UPDATE users SET user_password = ? WHERE user_name = ?";
+                    $stmt = $conn->prepare($query);
+                    $stmt->bind_param("ss", $password, $username);
+                    $result = $stmt->execute();
+                    $stmt->close();
+                    if (!$result) {
+                        $message = "Düzenleme sırasında bir hata meydana geldi  ! ";
+                        $type = "error";
+                        return json_encode(["message" => $message, "type" => $type]);
+                    }
+                }
+                if ($result) {
+                    $message = "Düzenleme başarılı";
+                    $type = "success";
+                } else {
+                    $message = "Düzenleme sırasında bir hata meydana geldi  ! ";
                     $type = "error";
                 }
             } else {

@@ -17,7 +17,8 @@ if ($_SESSION['isAdmin'] == 1) {
                                 <?php echo $user['user_name'] ?>
                             </div>
                             <div class="action-buttons">
-                                <button data-username="<?php echo $user['user_name'] ?>" class="edit-user">Düzenle</button>
+                                <button data-username="<?php echo $user['user_name'] ?>"
+                                    data-isadmin="<?php echo $user['isAdmin'] ?>" class="edit-user">Düzenle</button>
                                 <button data-username="<?php echo $user['user_name'] ?>" class="delete-user">Sil</button>
                             </div>
                         </div>
