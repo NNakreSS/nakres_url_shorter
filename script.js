@@ -34,7 +34,7 @@ if (login_button)
             if (!response.ok) throw new Error("Network response was not ok");
             return response.json();
         }).then(async (result) => {
-            await createAlert(result["message"], result["type"], 4);
+            await createAlert(result["message"], result["type"], 1);
             if (result["type"] == "success") {
                 location.reload();
             }
@@ -52,7 +52,7 @@ if (logout_button)
                 if (!response.ok) throw new Error("Network response was not ok");
                 return response.json();
             }).then(async (result) => {
-                await createAlert(result["message"], result["type"], 4);
+                await createAlert(result["message"], result["type"], 1);
                 if (result["type"] == "success") location.reload();
             })
         }
@@ -64,19 +64,19 @@ if (short_button)
         buttonDisabledTime(short_button, 4)
         const url = long_url.value;
         if (isValidUrl(url)) {
-            const short_tag = short_url_tag.value || null;
+            const short_tag = short_url_tag.value.trim() || null;
             fetch(service, {
                 method: 'POST',
                 body: new URLSearchParams({ full_url: url, short_tag: short_tag, type: "add_new_url" })
             }).then(response => {
                 if (!response.ok) throw new Error("Network response was not ok");
-                return response.text();
+                return response.json();
             }).then(async (result) => {
-                await createAlert(result["message"], result["type"], 4);
+                await createAlert(result["message"], result["type"], 2);
                 if (result["type"] == "success") location.reload();
             })
         } else {
-            createAlert("Geçerli bir url adresi girin", "error", 3)
+            createAlert("Geçerli bir url adresi girin", "error", 2)
         }
     }
 
@@ -84,13 +84,13 @@ if (short_button)
 if (save_new_user)
     save_new_user.onclick = async () => {
         buttonDisabledTime(save_new_user, 2)
-        const userName = new_user_name.vale;
+        const userName = new_user_name.value.trim();
         const password = new_user_password.value;
         const isAdmin = new_user_isAdmin.checked;
-        if (!userName || !password) {
-            createAlert("Kullanıcı adı ve Şifre boş olamaz", "error", 2)
+        if (userName == "" || password == "") {
+            createAlert("Kullanıcı adı ve Şifre boş olamaz", "error", 1)
         } else {
-            const userConfirmed = await myConfirm(`kullanıcı adı : ${userName} /  şifre : ${password} / admin : ${isAdmin} bilgileri ile yeni üye eklemek istediğinize emin misiniz ?`)
+            const userConfirmed = await myConfirm(`kullanıcı adı : ${userName}   |  şifre : ${password}  |  admin : ${isAdmin}   ; bilgileri ile yeni üye eklemek istediğinize emin misiniz ?`)
             if (userConfirmed) {
                 fetch(service, {
                     method: 'POST',
@@ -99,8 +99,12 @@ if (save_new_user)
                     if (!response.ok) throw new Error("Network response was not ok");
                     return response.json()
                 }).then(async (result) => {
-                    await createAlert(result["message"], result["type"], 4);
-                    if (result["type"] == "success") location.reload();
+                    await createAlert(result["message"], result["type"], 1);
+                    if (result["type"] == "success") {
+                        setTimeout(() => {
+                            location.reload();
+                        }, 2000);
+                    }
                 })
             }
         }

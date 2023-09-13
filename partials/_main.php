@@ -1,7 +1,7 @@
 <div id="light-left-top"></div>
 <div id="light-right-center"></div>
 <div id="light-center-bottom"></div>
-<?php include_once('partials/_header.php') ?>
+<?php include_once('partials/_header.php'); ?>
 <main>
     <?php include_once('partials/_total-info.php') ?>
     <?php include_once('partials/_url-form.php') ?>

@@ -1,6 +1,9 @@
 <?php
 session_start();
 ob_start();
+include_once 'service/_connect.php';
+include_once 'service/_URLrewrite.php';
+include_once 'service/_getData.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

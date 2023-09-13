@@ -1,5 +1,8 @@
 <?php
-require_once '../config.php';
+$servername = "localhost"; // MySQL sunucu adı
+$username = "root"; // MySQL kullanıcı adı
+$password = ""; // MySQL parola
+$dbname = "url_shorter"; // Veritabanı adı
 // Bağlantı oluşturma
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Bağlantıyı kontrol et

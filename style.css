@@ -525,12 +525,11 @@ main #links {
     grid-area: links;
     height: 700px;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     padding: 25px;
     overflow-y: auto;
-    justify-content: space-between;
     gap: 10px;
+    align-content: flex-start
 }
 
 #links .link-item {
@@ -545,8 +544,9 @@ main #links {
 }
 
 .link-item .content {
-    width: 50%;
+    width: 60%;
     height: 100%;
+
 }
 
 .link-item .head {
@@ -573,6 +573,10 @@ main #links {
 
 .url .full-url {
     color: turquoise;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .full-url i {
@@ -609,8 +613,7 @@ main #links {
     font-weight: 600;
 }
 
-.create-date>.date,
-.clock {
+.create-date>.date {
     color: rgb(151, 151, 151);
     font-weight: 400;
 }
@@ -675,6 +678,7 @@ main #all-links {
 #all-links #link-list {
     display: flex;
     flex-wrap: wrap;
+    align-content: flex-start;
     width: 90%;
     height: 88%;
     overflow-y: auto;

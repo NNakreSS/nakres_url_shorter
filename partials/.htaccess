@@ -1,0 +1,3 @@
+# .htaccess dosyası "partials" klasöründe oluşturulmalıdır.
+# "partials" klasörüne erişimi engelle
+Deny from all
