@@ -4,8 +4,7 @@
     <?php include_once('partials/_total-info.php') ?>
     <?php include_once('partials/_url-form.php') ?>
     <?php include_once('partials/_links.php') ?>
-    <!-- only is admin -->
-    <?php
+    <?php // import admin interface
     if ($_SESSION['isAdmin'] == 1)
         include_once('partials/_admin.php');
     ?>
