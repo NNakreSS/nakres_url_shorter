@@ -321,7 +321,7 @@ const buttonDisabledTime = async (button, time) => {
 const myConfirm = (text = "Yapmak istediniz işlemi onaylıyor musunuz ?", yes = 'Evet', no = 'Hayır') =>
     new Promise((resolve, reject) => {
         overlay.style.display = "block";
-        customConfirm.style.display = "block";
+        customConfirm.classList.add('show');
 
         customConfirm.querySelector("p").textContent = text;
         confirmYesButton.textContent = yes;
@@ -329,25 +329,34 @@ const myConfirm = (text = "Yapmak istediniz işlemi onaylıyor musunuz ?", yes =
 
         confirmYesButton.addEventListener("click", () => {
             overlay.style.display = "none";
-            customConfirm.style.display = "none";
+            customConfirm.classList.remove('show');
             resolve(true);
         });
 
         confirmNoButton.addEventListener("click", () => {
             overlay.style.display = "none";
-            customConfirm.style.display = "none";
+            customConfirm.classList.remove('show');
             resolve(false);
         });
     });
 
 
 const executeCopy = async (copyText) => {
-    await navigator.clipboard.writeText(copyText)
-        .then(function () {
-            createAlert("Kopyalandı", "info", 2);
-        })
-        .catch(function (err) {
-            createAlert("Kopyalama başarısız : " + err, "error", 2);
-        });
+    var textArea = document.createElement("textarea");
+    textArea.value = copyText;
+
+    document.body.appendChild(textArea);
+    textArea.select();
+
+    try {
+        var successful = document.execCommand("copy");
+        var msg = successful ? "Kopyalandı!" : "Kopyalama Başarısız!";
+        var type = successful ? "success" : "error";
+        createAlert(msg, type, 1);
+    } catch (err) {
+        createAlert("Kopyalama işlemi başarısız: " + err, "error", 1);
+    }
+
+    document.body.removeChild(textArea);
 };
 

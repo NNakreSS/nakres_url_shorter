@@ -1,24 +1,28 @@
 <div class="box-item" id="total-infos">
     <div id="total-click" class="total">
         <div class="total-conent">
-            <i class="total-icon fa-solid fa-chart-simple"></i>
-            <div class="total-text">
-                <div id="click-count">
-                    <?php echo $clickCount ?>
+            <div class="content-info">
+                <i class="total-icon fa-solid fa-chart-simple"></i>
+                <div class="total-text">
+                    <div id="click-count">
+                        <?php echo $clickCount ?>
+                    </div>
+                    <span>Tıklamalar</span>
                 </div>
-                <span>Tıklamalar</span>
             </div>
             <i class="total-bg fa-solid fa-chart-simple"></i>
         </div>
     </div>
     <div id="total-link" class="total">
         <div class="total-conent">
-            <i class="total-icon fa-solid fa-link"></i>
-            <div class="total-text">
-                <div id="link-count">
-                    <?php echo $userUrls->num_rows ?>
+            <div class="content-info">
+                <i class="total-icon fa-solid fa-link"></i>
+                <div class="total-text">
+                    <div id="link-count">
+                        <?php echo $userUrls->num_rows ?>
+                    </div>
+                    <span>Toplam Link</span>
                 </div>
-                <span>Toplam Link</span>
             </div>
             <i class="total-bg fa-solid fa-link"></i>
         </div>

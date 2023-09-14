@@ -10,68 +10,40 @@
 }
 
 body {
-    min-height: 80vh;
+    min-height: 100vh;
     background-color: #232323 !important;
     position: relative;
-    overflow-x: hidden !important;
+    overflow-x: hidden;
 }
 
 #light-left-top {
     position: absolute;
-    top: 10%;
-    left: 10%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
     width: 50%;
     height: 50%;
     background: radial-gradient(ellipse at left top, rgba(113, 174, 212, 0.6) 0%, rgba(0, 0, 0, 0) 60%);
-    filter: blur(5vw);
-    z-index: -99;
-}
-
-#light-right-center {
-    position: absolute;
-    top: 35%;
-    right: -55%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    height: 70%;
-    background: radial-gradient(ellipse at center bottom, rgba(113, 174, 212, 0.6) 0%, rgba(0, 0, 0, 0) 50%);
-    filter: blur(5vw);
-    z-index: -99;
-}
-
-#light-center-bottom {
-    position: fixed;
-    bottom: -55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    height: 60%;
-    background: radial-gradient(ellipse at center bottom, rgba(117, 191, 220, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
-    filter: blur(5vw);
+    transform: translate(-40%, -20%);
     z-index: -99;
 }
 
 header {
     width: 100%;
-    height: 3.5vw;
+    height: 50px;
     background-color: #1C1C1C;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: .7vw 0;
-    border-bottom: .2vw solid #4A4A4A;
+    padding: 10px 0px;
+    border-bottom: 3px solid #4A4A4A;
 }
 
 header #logo {
-    display: flex;
-    align-items: center;
     margin-left: 5%;
     height: 100%;
-    font-size: 1.5vw;
-    font-weight: 700;
-    filter: drop-shadow(-.2vw .2vw .05vw #00aaffab);
+    font-size: 20px;
+    font-weight: bold;
 }
 
 header #login-controll {
@@ -87,14 +59,13 @@ header #login-controll #user {
     display: flex;
     align-items: center;
     justify-content: start;
-    padding: 1vw;
-    border-radius: .3em;
+    padding: 15px;
+    border-radius: 5px;
     height: 100%;
-    width: 10vw;
-    border: .05vw solid rgb(122, 122, 122);
+    width: 200px;
+    border: 1px solid rgb(122, 122, 122);
     background: rgb(51, 51, 51);
     background: linear-gradient(61deg, rgba(51, 51, 51, 0.2189250700280112) 0%, rgba(0, 1, 0, 0) 100%);
-    font-size: 1vw;
 }
 
 header #login-controll #user .user-icon {
@@ -103,19 +74,17 @@ header #login-controll #user .user-icon {
 
 header #login-controll #log-out {
     height: 120%;
-    width: 50%;
-    letter-spacing: .05rem;
+    width: 100px;
+    font-weight: 500;
 }
 
-/* buttons */
 button {
-    border-radius: .3em;
+    border-radius: 5px;
     border: none;
     outline: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-weight: 600;
-    font-size: .9vw;
+    font-weight: 800;
 }
 
 
@@ -160,7 +129,6 @@ button:disabled {
     color: white;
 }
 
-/* webkit */
 ::-webkit-scrollbar {
     width: .3rem;
 }
@@ -168,49 +136,49 @@ button:disabled {
 /* Track */
 ::-webkit-scrollbar-track {
     background: #515151;
-    border-radius: .3em;
+    border-radius: .3rem;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #818181;
-    border-radius: .3em;
+    border-radius: .3rem;
 }
 
 main {
     width: 90%;
-    /* background-color: #ffffff; */
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.3%;
+    gap: 20px;
     grid-template-areas:
         "total total new_user"
         "url-form url-form users"
         "links links users"
         "links links all-links";
-    padding: 2% 0;
+    padding: 20px 0px;
 }
+
 
 footer {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 2.5vw;
+    height: 40px;
     background-color: #1C1C1C;
     color: rgb(201, 201, 201);
-    padding: 1rem;
-    border-top: .2vw solid #4A4A4A;
-    font-size: .9vw;
+    padding: 10px;
+    border-top: 3px solid #4A4A4A;
+    font-size: .9rem;
 }
 
 main .box-item {
     background-color: #1C1C1C;
-    border-top: .2rem solid #00b3ff;
-    border-top-right-radius: .2rem;
-    border-top-left-radius: .2rem;
-    box-shadow: 0 .1rem .3rem 0 #000000;
+    border-top: 4px solid #00b3ff;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    box-shadow: 0px 3px 5px 0px #000000;
 }
 
 label {
@@ -220,22 +188,21 @@ label {
     justify-content: center;
     background-color: #232323;
     width: 90%;
-    height: 2.3vw;
+    height: 40px;
     color: #00b3ff;
-    border: .08rem solid #00b3ff;
-    font-size: 1vw;
+    border: 1px solid #00b3ff;
 }
 
 label i {
     position: absolute;
-    left: 1rem;
+    left: 10px;
 }
 
 /* total infos  */
 
 main #total-infos {
     grid-area: total;
-    height: 8vw;
+    height: 140px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -245,7 +212,7 @@ main #total-infos {
     width: 48%;
     height: 80%;
     background-color: #232323;
-    border-radius: .3em;
+    border-radius: 10px;
 }
 
 
@@ -253,35 +220,42 @@ main #total-infos {
     display: flex;
     width: 100%;
     height: 100%;
-    border-radius: .3em;
+    flex-wrap: nowrap;
+    border-radius: 10px;
     align-items: center;
     position: relative;
+    justify-content: space-around;
+    overflow: hidden;
 }
 
+.total-conent .content-info {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    width: 60%;
+    height: 80%;
+}
 
 #total-infos .total-icon {
     display: block;
-    margin: 0 5%;
-    border-radius: .3em;
-    font-size: 3vw;
+    margin-right: 3%;
+    border-radius: 10px;
+    font-size: 2.5rem;
     color: #00b3ff;
 }
 
 #total-infos .total-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: .3em;
     color: white;
     font-weight: bolder;
-    font-size: 1.5vw;
 }
 
 #total-infos .total-bg {
-    position: absolute;
-    right: .8rem;
-    font-size: 5vw;
-    color: #3e3e3e;
+    font-size: 6rem;
+    color: #2c2c2c;
+    text-align: center;
+    text-decoration: solid;
 }
 
 #total-infos .total-text span {
@@ -293,7 +267,7 @@ main #total-infos {
 
 main #new-user {
     grid-area: new_user;
-    height: 8vw;
+    height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -322,9 +296,9 @@ main #new-user {
     height: 40%;
     width: 49%;
     outline: none;
-    padding: 0 1rem;
-    font-size: 1vw;
-    border: .1rem solid #3a3a3a;
+    padding: 0 20px;
+    font-size: 1rem;
+    border: 1px solid #3a3a3a;
     transition: all 0.1s ease;
     caret-color: #cecece;
     background-color: #232323;
@@ -334,7 +308,7 @@ main #new-user {
 
 #new_user_box form input::placeholder {
     color: rgba(181, 181, 181, 0.215);
-    font-size: .8vw;
+    font-size: .9rem;
 }
 
 #new_user_box form input:focus {
@@ -345,6 +319,15 @@ main #new-user {
     height: 40%;
     width: 49%;
     align-self: flex-end;
+    color: green;
+    background: rgb(1, 255, 0);
+    background: linear-gradient(61deg, rgba(1, 255, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
+    border: 2px solid #558B4C;
+}
+
+#new_user_box #save_new_user:hover:enabled {
+    background: green;
+    color: white;
 }
 
 #new_user_box .check-box {
@@ -354,15 +337,14 @@ main #new-user {
     height: 40%;
     width: 49%;
     color: white;
-    font-size: 1vw;
-    border-bottom: .2vw solid #49fcff;
+    font-size: 1rem;
+    border-bottom: 2px solid #49fcff;
 }
 
 #new_user_box .check-box input {
-    background-color: #000000;
-    margin-bottom: 3%;
-    height: 60%;
-    width: 20%;
+    height: 100%;
+    width: 10%;
+    margin-left: 2%;
 }
 
 /* url form */
@@ -372,35 +354,37 @@ main #url-form {
     align-items: center;
     justify-content: center;
     grid-area: url-form;
-    height: 8vw;
+    height: 110px;
     position: relative;
 }
 
 #url-form form {
+    /* background-color: #00b3ff; */
     height: 90%;
     width: 97%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
+    align-content: space-around;
 }
 
 #url-form input {
     width: 100%;
     height: 30%;
     outline: none;
-    padding: 0 2vw;
-    font-size: 1vw;
-    border: .08vw solid #019be2;
+    padding: 0 40px;
+    font-size: .8rem;
+    border: 1px solid #019be2;
     transition: all 0.1s ease;
     caret-color: #cecece;
     background-color: #232323;
     color: #cecece;
-    border-radius: .3em;
+    border-radius: 5px;
 }
 
 #url-form input::placeholder {
-    font-size: .8vw;
+    font-size: .8rem;
     font-weight: 700;
     color: rgba(151, 151, 151, 0.281);
 }
@@ -408,17 +392,16 @@ main #url-form {
 #url-form form .url-form-icon {
     position: absolute;
     color: #00b3ff;
-    font-size: 1vw;
 }
 
 #url-form form .url-form-icon.long {
-    top: 21%;
-    left: 2.5%;
+    top: 20%;
+    left: 3%;
 }
 
 #url-form form .url-form-icon.tag {
-    top: 66%;
-    left: 2.5%;
+    top: 65%;
+    left: 3%;
 }
 
 #url-form #short_url_tag::placeholder {
@@ -433,9 +416,8 @@ main #url-form {
 
 
 #url-form #short_button {
-    position: absolute;
     right: 1.5%;
-    bottom: 1vw;
+    bottom: 20px;
     width: 10%;
     height: 30%;
 }
@@ -445,7 +427,7 @@ main #url-form {
 
 main #users {
     grid-area: users;
-    height: 25vw;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -462,6 +444,7 @@ main #users {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    /* background-color: #00aaff; */
 }
 
 
@@ -473,32 +456,31 @@ main #users {
     align-content: flex-start;
     flex-wrap: wrap;
     overflow-y: auto;
-    gap: .5vw;
+    gap: 10px;
 }
 
 #user-list .user-item {
     width: 98%;
-    height: 3vw;
+    height: 50px;
     color: #fff;
     padding: 1%;
-    border-left: .3vw solid #00b3ff;
-    border-radius: .2vw;
+    border-left: 5px solid #00b3ff;
+    border-radius: 2px;
     background: #232323;
-    box-shadow: inset 1vw 0 1.5vw -1.3vw rgba(0, 179, 255, 0.911);
+    box-shadow: inset 15px 0 20px -18px rgba(0, 179, 255, 0.911);
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding-left: 2.5vw;
-    padding-right: 1vw;
-    font-size: 1.2vw;
+    padding-left: 40px;
+    padding-right: 10px;
 }
 
 .user-item i {
     position: absolute;
-    left: .5vw;
+    left: 10px;
     color: #5C5C5C;
-    font-size: 1.2vw;
+    font-size: 1.2rem;
 }
 
 .user-item i.admin {
@@ -511,51 +493,51 @@ main #users {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: .3vw;
+    gap: 5px;
 }
 
 .user-item button {
     width: 50%;
     height: 70%;
-    text-align: center;
+    font-weight: 500;
 }
 
 /* links */
 
 main #links {
     grid-area: links;
-    height: 42vw;
+    height: 700px;
     display: flex;
     flex-wrap: wrap;
-    padding: 1.5vw;
+    padding: 25px;
     overflow-y: auto;
-    align-content: flex-start;
-    gap: 1vw;
+    gap: 10px;
+    align-content: flex-start
 }
 
 #links .link-item {
     width: 100%;
     background-color: #232323;
-    height: 10vw;
-    padding: 1vw 2vw;
+    height: 160px;
+    padding: 15px 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    border-bottom: .2vw solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .link-item .content {
-    width: 80%;
+    width: 60%;
     height: 100%;
-    font-size: 1vw;
+
 }
 
 .link-item .head {
     height: 20%;
-    /* width: 100%; */
+    width: 100%;
     color: white;
-    font-size: 1.2vw;
-    margin-bottom: 1%;
+    font-size: 1.2rem;
+    margin-bottom: 2%;
 }
 
 .link-item .head div {
@@ -572,11 +554,11 @@ main #links {
     visibility: hidden;
     z-index: 1;
     color: rgb(245, 245, 245);
-    font-size: .8vw;
+    font-size: .8rem;
     background-color: #444444;
-    border-radius: .3em;
-    padding: .5vw 1vw;
-    border-bottom: .2vw solid orange;
+    border-radius: 2px;
+    padding: 10px 15px 10px 15px;
+    border-bottom: 2px solid orange;
 }
 
 .link-item .head div:hover .tooltip-text {
@@ -591,15 +573,16 @@ main #links {
 }
 
 .link-info .url {
-    height: 20%;
+    height: auto;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
 }
 
 
 .url .full-url {
     color: turquoise;
-    max-width: 24vw;
+    max-width: 250px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -619,18 +602,19 @@ main #links {
     height: 30%;
     margin: 2% 0;
     outline: none;
-    padding: 0 1vw;
-    font-size: 1vw;
-    border: .08vw solid #3a3a3a;
+    padding: 0 10px;
+    font-size: 1rem;
+    border: 1px solid #3a3a3a;
     transition: all 0.1s ease;
     caret-color: #a3a3a3;
     background-color: #232323;
     color: white;
+    align-self: flex-end;
 }
 
 .link-info input::placeholder {
     color: rgb(121, 121, 121);
-    font-size: .9vw;
+    font-size: .9rem;
 }
 
 .link-info input:focus {
@@ -648,40 +632,41 @@ main #links {
 }
 
 #links .link-action {
-    width: 20%;
+    width: 40%;
     height: 100%;
     display: flex;
     justify-content: end;
     align-items: center;
-    gap: .5vw;
+    gap: 10px;
 }
 
 
 .link-action button {
-    width: 49%;
+    width: 30%;
     height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    letter-spacing: .1vw;
+    font-weight: 500;
 }
 
 #non-link-info {
-    font-size: 1.5vw;
+    font-size: 1.5rem;
     color: rgb(139, 139, 139);
+
 }
 
 /* all links */
 
 main #all-links {
     grid-area: all-links;
-    height: 25vw;
+    height: 400px;
     display: flex;
     align-items: start;
     justify-content: center;
-    padding: 1vw;
+    padding: 20px 10px;
     flex-wrap: wrap;
-    gap: 2vw;
+    gap: 10px;
 }
 
 #all-links #link-list {
@@ -691,33 +676,29 @@ main #all-links {
     width: 90%;
     height: 88%;
     overflow-y: auto;
-    gap: .6vw;
+    gap: 10px;
 }
 
 #all-links .all-link.item {
     width: 98%;
-    height: 3vw;
+    height: 50px;
     color: #fff;
     padding: 1%;
-    border-left: .3vw solid #00b3ff;
-    border-radius: .3vw;
+    border-left: 5px solid #00b3ff;
+    border-radius: 2px;
     background: #232323;
-    box-shadow: inset 1vw 0 1.5vw -1.3vw rgba(0, 179, 255, 0.911);
+    box-shadow: inset 15px 0 20px -18px rgba(0, 179, 255, 0.911);
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding-left: .8vw;
-    padding-right: 1vw;
-    font-size: .8vw;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: .8rem;
 }
 
 #all-links .all-link.info a {
     color: antiquewhite;
-    max-width: 70%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 #all-links .all-link.creator {
@@ -727,8 +708,10 @@ main #all-links {
 #all-links .all-link.delete {
     width: 20%;
     height: 70%;
-    letter-spacing: .1vw;
+    font-weight: 300;
+    font-size: 1rem;
 }
+
 
 /* login page  */
 
@@ -742,19 +725,18 @@ main #all-links {
     width: 100%;
 }
 
+
 #login-container #login_page {
-    flex: .3;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    min-height: 30vw;
     width: 30%;
     background-color: #1C1C1C;
-    border-top: .3vw solid #00b3ff;
-    border-top-right-radius: .3vw;
-    border-top-left-radius: .3vw;
-    box-shadow: 0 .3vw .5vw 0 #000000;
+    border-top: 4px solid #00b3ff;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    box-shadow: 0px 3px 5px 0px #000000;
     padding: 1%;
 }
 
@@ -766,21 +748,21 @@ main #all-links {
     align-content: center;
     position: relative;
     height: 85%;
-    gap: 1vw;
+    gap: 10px;
     margin-top: 2%;
 }
 
 #login_page input {
     width: 90%;
     outline: none;
-    padding: .5vw 2vw;
-    font-size: 1vw;
-    border: .1vw solid #3a3a3a;
+    padding: 5px 20px;
+    font-size: 1rem;
+    border: 1px solid #3a3a3a;
     transition: all 0.1s ease;
     caret-color: #a3a3a3;
     background-color: #232323;
     color: white;
-    border-radius: .3em;
+    border-radius: 5px;
 }
 
 #login_page input:focus {
@@ -793,21 +775,23 @@ main #all-links {
 
 #login_page input::placeholder {
     color: rgba(181, 181, 181, 0.215);
-    font-size: .9vw;
+    font-size: .9rem;
 }
 
 #login_page #login_button {
     width: 80%;
-    padding: .6vw;
+    padding: 10px;
     margin-top: 10%;
 }
 
+
 /* alerts  */
 .alert-box {
+    min-height: 50px;
     position: fixed;
     text-align: center;
-    top: 2vw;
-    left: 2vw;
+    top: 20px;
+    left: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -815,58 +799,63 @@ main #all-links {
 }
 
 .alert-box .alert {
-    padding: 1vw 1vw 1vw 4vw;
+    padding: 20px 20px 20px 60px;
     text-align: center;
     color: rgba(255, 255, 255, 0.781);
-    font-size: 1vw;
-    border-radius: .3em;
+    font-size: 1rem;
+    border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
     background-color: #1c1c1cff;
-    border: .1vw solid #8a8a8a40;
+    border: 1px solid #b8b8b840;
 }
 
 .alert i {
-    font-size: 1.8vw;
+    font-size: 1.8rem;
     position: absolute;
-    left: 1vw;
+    left: 1rem;
     margin-right: 5%;
 }
 
 .alert.info i {
     color: orange;
+    /* filter: drop-shadow(0 0 .3rem orange); */
 }
 
 
 .alert.error i {
     color: red;
+    /* filter: drop-shadow(0 0 .3rem red); */
 }
 
 .alert.success i {
     color: green;
+    /* filter: drop-shadow(0 0 .3rem green); */
 }
 
 .alert.info {
-    border-bottom: .3vw solid orange;
+    border-bottom: 2px solid orange;
 }
 
+
 .alert.error {
-    border-bottom: .3vw solid red;
+    border-bottom: 2px solid red;
+
 }
 
 .alert.success {
-    border-bottom: .3vw solid green;
+    border-bottom: 2px solid green;
 }
 
 .alert .closebtn {
-    margin-left: 1vw;
+    margin-left: 15px;
     color: white;
     font-weight: 600;
     float: right;
-    font-size: 2vw;
-    line-height: 1.5vw;
+    font-size: 2rem;
+    line-height: 1.5rem;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -878,29 +867,42 @@ main #all-links {
 /* custom comfirm */
 
 .custom-confirm {
-    display: none;
     background-color: #232323;
     color: white;
-    border-bottom: .3vw solid rgb(0, 0, 0);
-    max-width: 35vw;
-    min-width: 25vw;
-    padding: 1.5vw;
+    border: .05rem solid rgb(160, 160, 160);
+    border-bottom: .4rem solid rgb(255, 255, 255);
+    max-width: 60vw;
+    min-width: 30vw;
+    padding: 20px;
     text-align: center;
     position: fixed;
     top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9999;
-    box-shadow: 0 0 1vw -.5vw black;
-    border-radius: .3em;
+    box-shadow: 0px 0px 20px -10px rgb(0, 0, 0);
+    border-radius: 5px;
     word-spacing: .2rem;
-    word-wrap: break-word;
+
+    transition: all 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(.6);
+}
+
+.custom-confirm.show {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .custom-confirm button {
-    width: 30%;
-    padding: .5vw;
-    margin-top: 5%;
+    width: 40%;
+    padding: 10px;
+    margin-top: 10%;
+    padding: 5px;
 }
 
 .overlay {
@@ -910,9 +912,14 @@ main #all-links {
     left: 0;
     height: 100%;
     width: 100%;
-    backdrop-filter: blur(.3vw);
+    backdrop-filter: blur(.2rem);
     background: rgba(0, 0, 0, 0.01);
     z-index: 9999;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    border: none !important;
 }
 
 /* edit user  */
@@ -923,8 +930,8 @@ main #all-links {
     align-items: center;
     justify-content: center;
     color: white;
-    width: 35vw;
-    padding: 1.5vw;
+    width: 500px;
+    padding: 20px;
     text-align: center;
     position: fixed;
     top: 30%;
@@ -933,10 +940,11 @@ main #all-links {
     z-index: 9999;
     word-spacing: .2rem;
     background-color: #1C1C1C;
-    border-bottom: .4vw solid #00b3ff;
-    border-radius: .3em;
-    box-shadow: 0 .3vw .5vw 0 #000000;
-    gap: 1.3vw;
+    border-bottom: 4px solid #00b3ff;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    box-shadow: 0px 3px 5px 0px #000000;
+    gap: 20px;
 }
 
 #edit-user-box .content {
@@ -946,27 +954,44 @@ main #all-links {
     justify-content: center;
     align-content: start;
     flex-wrap: wrap;
-    gap: 1vw;
+    gap: 10px;
 }
 
 #edit-user-box button {
     width: 40%;
-    font-size: 1vw;
+    color: green;
+    padding: 10px;
+    border: 2px solid green;
+    padding: 5px;
+    background: rgb(1, 255, 0);
+    background: linear-gradient(61deg, rgba(1, 255, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
     justify-self: end;
-    padding: .2vw;
 }
+
+#edit-user-box button:hover {
+    color: rgb(255, 255, 255);
+    background: green;
+}
+
+#edit-user-box #cancel_edit_user {
+    width: 40%;
+    padding: 10px;
+    padding: 5px;
+    justify-self: end;
+}
+
 
 #edit-user-box input {
     width: 90%;
     outline: none;
-    padding: .2vw 1vw;
-    font-size: 1vw;
-    border: .1vw solid #3a3a3a;
+    padding: 5px 20px;
+    font-size: 1rem;
+    border: 1px solid #3a3a3a;
     transition: all 0.1s ease;
     caret-color: #a3a3a3;
     background-color: #232323;
     color: white;
-    border-radius: .3em;
+    border-radius: 5px;
 }
 
 #edit-user-box input:focus {
@@ -979,7 +1004,7 @@ main #all-links {
 
 #edit-user-box input::placeholder {
     color: rgba(181, 181, 181, 0.215);
-    font-size: .9vw;
+    font-size: .9rem;
 }
 
 #edit-user-box .check-box {
@@ -989,60 +1014,145 @@ main #all-links {
     height: 40%;
     width: 60%;
     color: white;
-    font-size: 1vw;
-    border-bottom: .2vw solid #49fcff;
+    font-size: 1rem;
+    border-bottom: 2px solid #49fcff;
 }
 
 #edit-user-box .check-box input {
-    background-color: #000000;
-    height: 60%;
+    height: 100%;
     width: 20%;
 }
 
 /* Küçük mobil cihazlar */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1024px) {
     main {
-        width: 90%;
-        margin: auto;
-        display: grid;
         grid-template-columns: 1fr;
-        gap: 1.3%;
+        grid-template-rows: auto;
         grid-template-areas:
             "total"
             "url-form"
             "links"
             "new_user"
-            "users"
-            "all-links";
-        padding: 2% 0;
+            "all-links"
+            "users";
+        gap: 1em;
     }
 
-    #links .link-item {
-        height: 15vw;
+    header #logo {
+        display: none;
+    }
+
+    header {
+        justify-content: space-around;
+    }
+
+    #total-infos {
+        font-size: 1rem;
+    }
+
+    /* #total-infos .total-bg {
+        display: none;
+    } */
+
+    main #total-infos {
+        height: 90px;
     }
 
     main #url-form {
-        height: 13vw;
+        height: 120px;
+    }
+
+    #url-form #short_button {
+        width: 20%;
+        height: 30%;
+    }
+
+    main #links {
+        grid-area: links;
+        max-height: 600px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 25px;
+        overflow-y: auto;
+        gap: 10px;
+        align-content: flex-start;
+    }
+
+    #links .link-item {
+        height: 250px;
+        padding: 10px;
+    }
+
+    .link-item .content {
+        width: 100%;
+        height: 60%;
+    }
+
+
+    #total-infos .total-icon {
+        font-size: 1.2rem;
+    }
+
+    #links .link-action {
+        width: 100%;
+        height: 60%;
+    }
+
+    .link-action button {
+        height: 25%;
+    }
+
+    .link-info input {
+        width: 100%;
+        height: 40%;
+    }
+
+    #url-form #short_url_tag {
+        width: 75%;
     }
 
     main #new-user {
-        height: 20vw;
+        height: 200px;
     }
 
-    main #users {
-        height: 50vw;
+    #new_user_box form {
+        height: 90%;
     }
 
-    main #all-links {
-        height: 50vw;
+    #new_user_box form input {
+        height: 30%;
     }
 
-
-    #user-list .user-item {
-        height: 5vw;
+    #new_user_box #save_new_user {
+        height: 25%;
+        width: 49%;
+        align-self: center;
     }
 
-    #all-links .all-link.item {
-        height: 5vw;
+    .user-item .delete-user {
+        font-size: .7rem;
+        font-weight: 500;
+    }
+
+    .alert-box {
+        max-width: 95vw;
+    }
+
+    .custom-confirm {
+        width: 90vw;
+        top: 40%;
+    }
+
+    #edit-user-box {
+        width: 90vw;
+        padding: 10px;
+        top: 40%;
+        gap: 10px;
+    }
+
+    #login-container #login_page {
+        width: 90%;
+        height: 50vh;
+        padding: 1%;
     }
 }
