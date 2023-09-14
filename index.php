@@ -1,6 +1,7 @@
 <?php
 session_start();
 ob_start();
+$currentDomain = $_SERVER["HTTP_REFERER"];
 include_once './config.php';
 include_once './service/_connect.php';
 include_once './service/_URLrewrite.php';

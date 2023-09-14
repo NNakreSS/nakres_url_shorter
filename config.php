@@ -8,7 +8,7 @@ $config['dbname'] = "url_shorter"; // Veritabanı adı
 // mysql end
 
 // url
-$config['domain'] = 'http://185.136.206.204:81/nakres_url_shorter/';
+$config['domain'] = $currentDomain;
 $config['index_location'] = '../nakres_url_shorter';
 // url end
 

@@ -223,10 +223,12 @@ window.onload = () => {
                 edit_user_isAdmin.checked = isAdmin;
                 name_input.value = user_name;
                 overlay.style.display = "block";
-                edit_box.style.display = "flex";
+                // edit_box.style.display = "flex";
+                edit_box.className = "show";
                 cancel.onclick = () => {
                     overlay.style.display = "none";
-                    edit_box.style.display = "none";
+                    // edit_box.style.display = "none";
+                    edit_box.className = "";
                     password_input.value = "";
                     name_input.value = "";
                 };
@@ -254,7 +256,8 @@ window.onload = () => {
                         })
                     }
                     overlay.style.display = "none";
-                    edit_box.style.display = "none";
+                    // edit_box.style.display = "none";
+                    edit_box.className = "";
                     password_input.value = "";
                     name_input.value = "";
                 };

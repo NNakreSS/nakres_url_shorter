@@ -319,16 +319,8 @@ main #new-user {
     height: 40%;
     width: 49%;
     align-self: flex-end;
-    color: green;
-    background: rgb(1, 255, 0);
-    background: linear-gradient(61deg, rgba(1, 255, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
-    border: 2px solid #558B4C;
 }
 
-#new_user_box #save_new_user:hover:enabled {
-    background: green;
-    color: white;
-}
 
 #new_user_box .check-box {
     display: flex;
@@ -912,7 +904,7 @@ main #all-links {
     left: 0;
     height: 100%;
     width: 100%;
-    backdrop-filter: blur(.2rem);
+    backdrop-filter: blur(.1rem);
     background: rgba(0, 0, 0, 0.01);
     z-index: 9999;
 }
@@ -925,7 +917,7 @@ button:disabled {
 /* edit user  */
 
 #edit-user-box {
-    display: none;
+    display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -936,7 +928,6 @@ button:disabled {
     position: fixed;
     top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%);
     z-index: 9999;
     word-spacing: .2rem;
     background-color: #1C1C1C;
@@ -945,6 +936,19 @@ button:disabled {
     border-bottom-left-radius: 2px;
     box-shadow: 0px 3px 5px 0px #000000;
     gap: 20px;
+
+    transition: all 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(.6);
+}
+
+#edit-user-box.show {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 #edit-user-box .content {
@@ -959,18 +963,9 @@ button:disabled {
 
 #edit-user-box button {
     width: 40%;
-    color: green;
     padding: 10px;
-    border: 2px solid green;
     padding: 5px;
-    background: rgb(1, 255, 0);
-    background: linear-gradient(61deg, rgba(1, 255, 0, 0.05085784313725494) 0%, rgba(0, 1, 0, 0) 100%);
     justify-self: end;
-}
-
-#edit-user-box button:hover {
-    color: rgb(255, 255, 255);
-    background: green;
 }
 
 #edit-user-box #cancel_edit_user {
