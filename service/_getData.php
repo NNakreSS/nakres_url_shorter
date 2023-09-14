@@ -4,10 +4,8 @@ if (isset($_SESSION['user_id'])) {
     if ($_SESSION['isAdmin'] == 1) {
         $allUrls = $conn->query('SELECT * FROM urls');
         $usersData = $conn->query('SELECT * FROM users');
-        $allClickCount = 0;
-        foreach ($allUrls as $key => $link) {
-            $allClickCount += $link['click'];
-        }
+        $allLinkCount = $allUrls->num_rows;
+
     }
     $dataStmt = $conn->prepare($dataQuery);
     $user_idForData = $conn->real_escape_string($_SESSION['user_id']);

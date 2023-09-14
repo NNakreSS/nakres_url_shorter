@@ -1,5 +1,7 @@
 <header>
-    <div id="logo">NAKRES LİNK</div>
+    <div id="logo">
+        <?php echo $config['logo'] ?>
+    </div>
     <div id="login-controll">
         <div id="user">
             <i class="user-icon fa-solid fa-user"></i>

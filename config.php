@@ -2,9 +2,9 @@
 $config = [];
 // mysql
 $config['servername'] = "localhost"; // MySQL sunucu adı
-$config['username'] = "root"; // MySQL kullanıcı adı
+$config['username'] = ""; // MySQL kullanıcı adı
 $config['password'] = ""; // MySQL parola
-$config['dbname'] = "url_shorter"; // Veritabanı adı
+$config['dbname'] = ""; // Veritabanı adı
 // mysql end
 
 // url
@@ -15,9 +15,13 @@ if (isset($_SERVER['HTTP_HOST']) && isset($_SERVER['REQUEST_URI'])) {
 } else {
     $config['domain'] = "http://localhost/nakres_url_shorter/";
 }
-
 $config['index_location'] = './';
 // url end
+
+// html
+$config['title'] = "NakreS - Url Shorter";
+$config['logo'] = "NakreS LİNK";
+// html end
 
 // messages
 

@@ -1,5 +1,5 @@
 <div class="box-item" id="all-links">
-    <label><i class="fa-solid fa-link"></i> Genel Link Listesi | <?php echo $allClickCount?> link </label>
+    <label><i class="fa-solid fa-link"></i> Genel Link Listesi | <?php echo $allLinkCount?> link </label>
     <div id="link-list">
         <?php
         if ($_SESSION['isAdmin'] == 1) {
