@@ -724,6 +724,7 @@ main #all-links {
     align-items: center;
     flex-wrap: wrap;
     width: 30%;
+    height: 50vh;
     background-color: #1C1C1C;
     border-top: 4px solid #00b3ff;
     border-top-right-radius: 2px;
@@ -891,10 +892,11 @@ main #all-links {
 }
 
 .custom-confirm button {
-    width: 40%;
+    width: 25%;
     padding: 10px;
     margin-top: 10%;
     padding: 5px;
+    height: 3rem;
 }
 
 .overlay {
@@ -1146,8 +1148,8 @@ button:disabled {
     }
 
     #login-container #login_page {
-        width: 90%;
-        height: 50vh;
+        width: 80vw;
         padding: 1%;
+        height: auto;
     }
 }
