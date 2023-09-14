@@ -1,6 +1,5 @@
 <?php
 if (isset($_SESSION['user_id'])) {
-    # code...
     $dataQuery = "SELECT * FROM urls WHERE owner_id = ? ";
     if ($_SESSION['isAdmin'] == 1) {
         $allUrls = $conn->query('SELECT * FROM urls');

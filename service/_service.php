@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo deleteUrlToDatabase($_POST['url'], $conn);
             break;
         case 'edit_url':
-            echo editUrlToDatabase($_POST['url'], $_POST['newUrl'], $conn);
+            echo updateUrlToDatabase($_POST['short_url'], $_POST['new_short_url'], $_POST['long_url'], $conn);
             break;
         default:
             break;
@@ -263,23 +263,24 @@ function deleteUrlToDatabase($url, $conn)
     return json_encode(["message" => $message, "type" => $type]);
 }
 
-function editUrlToDatabase($url, $newUrl, $conn)
+function updateUrlToDatabase($short_url, $new_short_url, $long_url, $conn)
 {
-    $short_url = $conn->real_escape_string($url);
-    $new_url = $conn->real_escape_string($newUrl);
+    $short_url = $conn->real_escape_string($short_url);
+    $new_short_url = $conn->real_escape_string($new_short_url);
+    $new_url = $conn->real_escape_string($long_url);
     if (!empty($short_url) && $short_url != "") {
         if (isDoesExistShortUrl($short_url, $conn)) {
-            if (isDoesExistShortUrl($new_url, $conn)) {
+            if ($short_url != $new_short_url && isDoesExistShortUrl($new_url, $conn)) {
                 $message = $new_url . " - Zaten kullanılıyor başka bir takma ad seçin ! ";
                 $type = "error";
             } else {
-                $query = "UPDATE urls SET short_url = ? WHERE short_url  = ?";
+                $query = "UPDATE urls SET short_url = ?  , long_url = ? WHERE short_url  = ?";
                 $stmt = $conn->prepare($query);
-                $stmt->bind_param('ss', $new_url, $short_url);
+                $stmt->bind_param('sss', $new_short_url, $new_url, $short_url);
                 $update = $stmt->execute();
                 $stmt->close();
                 if ($update) {
-                    $message = $short_url . " - " . $new_url . " ile değiştirildi";
+                    $message = "Değişiklikler kaydedildi";
                     $type = "success";
                 } else {
                     $message = "Güncelleme sırasında bir hata meydana geldi ! ";

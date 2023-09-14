@@ -510,7 +510,7 @@ main #links {
 #links .link-item {
     width: 100%;
     background-color: #232323;
-    height: 160px;
+    height: 220px;
     padding: 15px 40px;
     display: flex;
     flex-wrap: wrap;
@@ -521,7 +521,6 @@ main #links {
 .link-item .content {
     width: 60%;
     height: 100%;
-
 }
 
 .link-item .head {
@@ -534,16 +533,16 @@ main #links {
 
 .link-item .head div {
     display: inline;
-    cursor: pointer;
 }
 
-.link-item .head div:hover {
+.link-item .head .tooltip-hover-div:hover {
     color: #00aaff;
+    cursor: pointer;
 }
 
 .tooltip-text {
     position: relative;
-    visibility: hidden;
+    display: none;
     z-index: 1;
     color: rgb(245, 245, 245);
     font-size: .8rem;
@@ -553,12 +552,12 @@ main #links {
     border-bottom: 2px solid orange;
 }
 
-.link-item .head div:hover .tooltip-text {
-    visibility: visible;
+.link-item .head .tooltip-hover-div:hover .tooltip-text {
+    display: inline;
 }
 
 .link-item .link-info {
-    height: 80%;
+    height: 50%;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -584,15 +583,14 @@ main #links {
     color: rgb(180, 180, 180);
 }
 
-.url .click-count {
+.head .click-count {
     color: #6e6e6e;
     font-weight: 500;
 }
 
 .link-info input {
-    width: 80%;
-    height: 30%;
-    margin: 2% 0;
+    width: 100%;
+    height: 50%;
     outline: none;
     padding: 0 10px;
     font-size: 1rem;
@@ -601,7 +599,13 @@ main #links {
     caret-color: #a3a3a3;
     background-color: #232323;
     color: white;
-    align-self: flex-end;
+    margin-bottom: .8rem;
+    border-radius: .3rem;
+}
+
+.link-info #input_long_url {
+    color: turquoise;
+    font-size: .8rem;
 }
 
 .link-info input::placeholder {
@@ -634,8 +638,8 @@ main #links {
 
 
 .link-action button {
-    width: 30%;
-    height: 30%;
+    width: 40%;
+    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;

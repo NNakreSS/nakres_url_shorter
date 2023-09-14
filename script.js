@@ -157,17 +157,31 @@ window.onload = () => {
     if (edit_url_button)
         edit_url_button.forEach(async (editbtn) => {
             editbtn.onclick = async () => {
-                const url = editbtn.dataset['tag']
-                const newUrl = editbtn.parentElement.parentElement.querySelector('input').value.trim();
-                if (newUrl == "") return createAlert("Düzenleme için yeni bir takma ad girin ! ", "info");
-                if (newUrl == url) return createAlert("Yeni takma ad zaten eskisi ile aynı ! ", "info");
-                if (!isValidStringTag(newUrl)) return createAlert("Geçerli bir Takma Ad  girin (sadece Harf , sayı ve nokta kullanabilirsiniz)", "error", 2);
-                const userConfirmed = await myConfirm(`'${url}'  tagını   '${newUrl}' ile değiştirmek istediğinize emin misiniz ? `)
+                const tag = editbtn.dataset['tag'];
+                const url = editbtn.dataset['url'];
+                let newTag = editbtn.parentElement.parentElement.querySelector('#input_short_url').value.trim();
+                const newUrl = editbtn.parentElement.parentElement.querySelector('#input_long_url').value.trim();
+                if (newUrl == url && newTag == "") {
+                    return createAlert("Bir değişiklik yapmadın ! ", "info");
+                } else if (newUrl == url) {
+                    if (!isValidStringTag(newTag)) return createAlert("Geçerli bir Takma Ad  girin (sadece Harf , sayı ve nokta kullanabilirsiniz)", "error", 2);
+                    if (newTag == tag) return createAlert("Yeni takma ad zaten eskisi ile aynı ! ", "info");
+                    var confirmMsg = `[${tag}] Takma adını [${newTag}] ile değiştirmek istediğinize emin misiniz ? `
+                } else if (newTag == "") {
+                    if (!isValidUrl(newUrl)) return createAlert("Geçerli bir url adresi girin", "error", 2);
+                    newTag = tag
+                    var confirmMsg = `Url adresini [${newUrl}] olarak değiştirmek istediğinize emin misiniz ? `
+                } else {
+                    if (!isValidUrl(newUrl)) return createAlert("Geçerli bir url adresi girin", "error", 2);
+                    var confirmMsg = `Url adresini [${newUrl}] olarak ve [${tag}] Takma adını [${newTag}] ile değiştirmek istediğinize emin misiniz ? `
+                }
+
+                const userConfirmed = await myConfirm(confirmMsg)
                 if (userConfirmed) {
                     buttonDisabledTime(editbtn, 3)
                     fetch(service, {
                         method: 'POST',
-                        body: new URLSearchParams({ type: "edit_url", url: url, newUrl: newUrl })
+                        body: new URLSearchParams({ type: "edit_url", short_url: tag, new_short_url: newTag, long_url: newUrl })
                     }).then((response) => {
                         if (!response.ok) throw new Error("Network response was not ok");
                         // console.log(response.text())

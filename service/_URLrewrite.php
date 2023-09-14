@@ -21,11 +21,11 @@ if (isset($_GET) && !empty($_GET)) {
             header("Location: " . $long_url);
             exit();
         } else {
-            header("Location:".$config['index_location']);
+            header("Location:" . $config['index_location']);
             exit();
         }
     } else {
-        header("Location:".$config['index_location']);
+        header("Location:" . $config['index_location']);
         exit();
     }
 }
