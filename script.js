@@ -37,14 +37,15 @@ window.onload = () => {
         login_button.onclick = () => {
             const username = login_username.value;
             const password = login_password.value;
-            console.log(username, password);
-            buttonDisabledTime(login_button, 3)
+            // console.log(username, password);
+            buttonDisabledTime(login_button, 2)
             if (username != "" && password != "") {
                 fetch(service, {
                     method: 'POST',
                     body: new URLSearchParams({ username: username, password: password, type: "login" })
                 }).then(response => {
                     if (!response.ok) throw new Error("Network response was not ok");
+                    // console.log(response.text());
                     return response.json();
                 }).then(async (result) => {
                     await createAlert(result["message"], result["type"]);
@@ -53,7 +54,7 @@ window.onload = () => {
                     }
                 })
             } else {
-                createAlert("Kullanıcı adı ve şifre alanını boş bırakamazsın", "error", 4);
+                createAlert("Kullanıcı adı ve şifre alanını boş bırakamazsın", "error", 3);
             }
         };
 
@@ -103,9 +104,11 @@ window.onload = () => {
             const userName = new_user_name.value.trim();
             const password = new_user_password.value;
             const isAdmin = new_user_isAdmin.checked;
-            if (userName == "" || password == "") {
-                buttonDisabledTime(save_new_user, 3)
-                createAlert("Kullanıcı adı ve Şifre boş olamaz", "error")
+            buttonDisabledTime(save_new_user, 3)
+            if (userName.length < 3) {
+                createAlert("Kullanıcı adı minimum 3 karakter uzunluğunda olmalı", "info")
+            } else if (password.length < 6) {
+                createAlert("Şifre minimum 6 karakterden oluşmalı", "error")
             } else {
                 const userConfirmed = await myConfirm(`kullanıcı adı : ${userName}   |  şifre : ${password}  |  admin : ${isAdmin}   ; bilgileri ile yeni üye eklemek istediğinize emin misiniz ?`)
                 if (userConfirmed) {
@@ -175,7 +178,6 @@ window.onload = () => {
                     if (!isValidUrl(newUrl)) return createAlert("Geçerli bir url adresi girin", "error", 2);
                     var confirmMsg = `Url adresini [${newUrl}] olarak ve [${tag}] Takma adını [${newTag}] ile değiştirmek istediğinize emin misiniz ? `
                 }
-
                 const userConfirmed = await myConfirm(confirmMsg)
                 if (userConfirmed) {
                     buttonDisabledTime(editbtn, 3)

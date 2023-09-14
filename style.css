@@ -83,7 +83,7 @@ button {
     border: none;
     outline: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     font-weight: 800;
 }
 
@@ -206,6 +206,7 @@ main #total-infos {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    font-size: 1.5rem;
 }
 
 #total-infos .total {
@@ -675,6 +676,8 @@ main #all-links {
     gap: 10px;
 }
 
+
+
 #all-links .all-link.item {
     width: 98%;
     height: 50px;
@@ -691,6 +694,13 @@ main #all-links {
     padding-left: 10px;
     padding-right: 10px;
     font-size: .8rem;
+}
+
+#all-links .all-link.info {
+    max-width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #all-links .all-link.info a {
@@ -854,7 +864,7 @@ main #all-links {
     font-size: 2rem;
     line-height: 1.5rem;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .alert .closebtn:hover {
@@ -1051,9 +1061,15 @@ button:disabled {
         font-size: 1rem;
     }
 
-    /* #total-infos .total-bg {
+    #total-infos .total-bg {
         display: none;
-    } */
+    }
+
+    .total-conent .content-info {
+        width: 100%;
+        height: 80%;
+        justify-content: center;
+    }
 
     main #total-infos {
         height: 90px;

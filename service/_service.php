@@ -37,9 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 function checkLogin($username, $password, $conn)
 {
+    $username = $conn->real_escape_string($username);
+    $password = $conn->real_escape_string($password);
+    // return json_encode(["message" => !empty($username)." : ".!empty($password), "type" => "info"]);
     if (!empty($username) && !empty($password)) {
-        $username = $conn->real_escape_string($username);
-        $password = $conn->real_escape_string($password);
         $query = "SELECT * FROM users WHERE BINARY user_name = ?";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("s", $username);
@@ -63,6 +64,9 @@ function checkLogin($username, $password, $conn)
             $type = "error";
         }
         $stmt->close();
+    }else {
+        $message = "Kullanıcı adı alınamadı " ;
+        $type = "error";
     }
     return json_encode(["message" => $message, "type" => $type]);
 }
