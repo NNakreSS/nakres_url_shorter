@@ -1,7 +1,8 @@
 <?php
 if (isset($_GET) && !empty($_GET)) {
     $keys = array_keys($_GET);
-    $short_url = str_replace('/', '', $keys[0]);
+    $srctag = mysqli_real_escape_string($conn, $keys[0]);
+    $short_url = str_replace('/', '', $srctag);
     if (preg_match('/^[a-zA-Z0-9]+$/', $short_url)) {
         $query = "SELECT long_url FROM urls WHERE short_url = ?";
         $stmt = $conn->prepare($query);

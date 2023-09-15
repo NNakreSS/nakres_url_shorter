@@ -17,7 +17,9 @@ include_once './service/_getData.php';
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="style.css">
-    <title><?php echo $config['title']?></title>
+    <title>
+        <?php echo $config['title'] ?>
+    </title>
     <style>
         <?php
         if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] != 1) {
