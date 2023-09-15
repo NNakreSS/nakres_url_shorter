@@ -2,9 +2,9 @@
 $config = [];
 // mysql
 $config['servername'] = "localhost"; // MySQL sunucu adı
-$config['username'] = ""; // MySQL kullanıcı adı
+$config['username'] = "root"; // MySQL kullanıcı adı
 $config['password'] = ""; // MySQL parola
-$config['dbname'] = ""; // Veritabanı adı
+$config['dbname'] = "url_shorter"; // Veritabanı adı
 // mysql end
 
 // url

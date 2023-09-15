@@ -1,1 +1,1 @@
-<footer>&COPY; NakreS Development 2023 | www.nakres.dev</footer>
+<footer>&COPY; NakreS Development 2023 &nbsp; | &nbsp; <a id="footer-link" target="_blank" href="https://nakres.dev/">nakres.dev</a></footer>
