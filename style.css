@@ -1186,9 +1186,9 @@ button:disabled {
         margin-top: 10px;
     }
 
-    
-#login_page #login_button {
-    margin-top: 0;
-}
+
+    #login_page #login_button {
+        margin-top: 0;
+    }
 
 }
