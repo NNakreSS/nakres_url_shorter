@@ -1185,4 +1185,10 @@ button:disabled {
     #login_page form {
         margin-top: 10px;
     }
+
+    
+#login_page #login_button {
+    margin-top: 0;
+}
+
 }
