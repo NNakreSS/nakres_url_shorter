@@ -17,6 +17,8 @@ include_once './service/_getData.php';
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icons/logo-white.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="icons/nakres.ico" type="image/x-icon">
     <title>
         <?php echo $config['title'] ?>
     </title>
