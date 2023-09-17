@@ -1,8 +1,13 @@
 # NakreS URL Shortener:
 
+*DEMO* : https://link.nakres.dev/
+- Kullanıcı: user
+- Şifre: user123
 ## Proje Tanıtımı
 
 Bu proje, URL'leri kısaltabilen ve kısaltılan URL'leri yönetebilen bir PHP uygulamasını içerir. Ayrıca, bir üyelik sistemi ve yönetici paneli içerir.
+
+![full Page screenshot](image.png)
 
 ## Özellikler
 
