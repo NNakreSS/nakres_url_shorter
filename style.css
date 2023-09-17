@@ -187,7 +187,15 @@ main .box-item {
     border-top: 4px solid #00b3ff;
     border-top-right-radius: 2px;
     border-top-left-radius: 2px;
-    box-shadow: 0px 3px 5px 0px #000000;
+    box-shadow: 0 3px 5px 0 #000000;
+}
+
+main .box-item:hover {
+    background-color: #1C1C1C;
+    border-top: 4px solid #00b3ff;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    box-shadow: 0 3px 10px 0 #000000;
 }
 
 label {
@@ -533,7 +541,7 @@ main #links {
 }
 
 .link-item .head {
-    height: 20%;
+    height: auto;
     width: 100%;
     color: white;
     font-size: 1.2rem;
