@@ -341,20 +341,28 @@ function getRandomShortUrl($conn)
     return $tag;
 }
 
-function generateRandomUserID($length = 8, $conn)
+function generateRandomUserID($length = 6, $conn)
 {
-    $byts = bin2hex(random_bytes($length));
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randomString = '';
+
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[random_int(0, strlen($characters) - 1)];
+    }
+
     $query = "SELECT * FROM users WHERE user_id = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param('s', $byts);
+    $stmt->bind_param('s', $randomString);
     $stmt->execute();
     $result = $stmt->get_result();
     $stmt->close();
+
     if ($result->num_rows > 0) {
         return generateRandomUserID($length, $conn);
     } else {
-        return $byts;
+        return $randomString;
     }
 }
+
 
 ?>
