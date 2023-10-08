@@ -36,7 +36,7 @@ $config['dbname'] = "url_shorter"; // Veritabanı adı
 ````
 - Projeniz kullanıma hazır varsayılan admin kullnıcı adı  : **admin** | şifre : **admin123** olarak ayarlanmıştır , giriş yaptıktan sonra yeni kullanıcılar oluşturabilir ve şifre kullanıcı adlarını düzenleyebilirsiniz.
 
-# EN
+# EN:
 
 # NakreS URL Shortener:
 
