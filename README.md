@@ -1,15 +1,3 @@
-![image](https://github.com/NNakreSS/nakres_url_shorter/assets/87872407/68d3f84a-225f-474a-a8f0-2c8eee5655f8)
-
-![image](https://github.com/NNakreSS/nakres_url_shorter/assets/87872407/1230657f-f6c1-440c-9354-744b95add3e8)
-
-![image](https://github.com/NNakreSS/nakres_url_shorter/assets/87872407/74616f85-2873-4de7-886a-1bc039200cc3)
-
-![image](https://github.com/NNakreSS/nakres_url_shorter/assets/87872407/a399130d-45c2-4427-83b8-2524473e5aad)
-
-![image](https://github.com/NNakreSS/nakres_url_shorter/assets/87872407/bbf67005-b4e5-4fb7-97d1-5699449ff1cb)
-
-![image](https://github.com/NNakreSS/nakres_url_shorter/assets/87872407/a76a7344-0b88-4ecb-b475-73dd261d0ab4)
-
 
 # TR:
 
