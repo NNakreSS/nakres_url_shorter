@@ -1,3 +1,13 @@
+![image](https://github.com/NNakreSS/nakres_url_shorter/assets/87872407/c963576a-a710-41c7-8f64-93dc831e095b)
+
+![full Page screenshot](image.png)
+
+![image](https://github.com/NNakreSS/nakres_url_shorter/assets/87872407/74616f85-2873-4de7-886a-1bc039200cc3)
+
+![image](https://github.com/NNakreSS/nakres_url_shorter/assets/87872407/a399130d-45c2-4427-83b8-2524473e5aad)
+
+![image](https://github.com/NNakreSS/nakres_url_shorter/assets/87872407/bbf67005-b4e5-4fb7-97d1-5699449ff1cb)
+
 # TR:
 
 *DEMO* : https://link.nakres.dev/
@@ -6,8 +16,6 @@
 ## Proje Tanıtımı
 
 Bu proje, URL'leri kısaltabilen ve kısaltılan URL'leri yönetebilen bir PHP uygulamasını içerir. Ayrıca, bir üyelik sistemi ve yönetici paneli içerir.
-
-![full Page screenshot](image.png)
 
 ## Özellikler
 
@@ -46,8 +54,6 @@ $config['dbname'] = "url_shorter"; // Veritabanı adı
 ## Project Introduction
 
 This project includes a PHP application that can shorten URLs and manage the shortened URLs. It also features a membership system and an admin panel.
-
-![full Page screenshot](image.png)
 
 ## Features
 
